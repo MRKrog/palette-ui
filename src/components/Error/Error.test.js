@@ -1,13 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { App, mapStateToProps, mapDispatchToProps } from './App';
+import { Error } from './Error';
 
-describe('App', () => {
+describe('Error', () => {
   let wrapper;
 
   beforeEach(() => {
     wrapper = shallow(
-      <App />
+      <Error />
     )
   })
 

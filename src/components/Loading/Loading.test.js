@@ -1,13 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { App, mapStateToProps, mapDispatchToProps } from './App';
+import { Loading } from './Loading';
 
-describe('App', () => {
+describe('Loading', () => {
   let wrapper;
 
   beforeEach(() => {
     wrapper = shallow(
-      <App />
+      <Loading />
     )
   })
 

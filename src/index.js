@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 
 
 import './index.scss';
-import { App } from './containers/App';
+import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
 
 import { BrowserRouter } from 'react-router-dom'
@@ -26,5 +26,5 @@ const router = (
 )
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(router, document.getElementById('root'));
 serviceWorker.unregister();

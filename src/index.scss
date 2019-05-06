@@ -5,6 +5,11 @@ $fontRobotoCond: 'Roboto Condensed', sans-serif;
 $fontOswald: 'Oswald', sans-serif;
 
 @import './containers/App/App';
+@import './containers/PaletteDisplay/PaletteDisplay';
+
+@import './components/Loading/Loading';
+@import './components/Header/Header';
+
 
 * {
   box-sizing: border-box;

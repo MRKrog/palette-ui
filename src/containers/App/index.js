@@ -6,8 +6,10 @@ import PropTypes from 'prop-types';
 import { Route, NavLink } from 'react-router-dom';
 
 import { Loading } from '../../components/Loading';
+import { PaletteDisplay } from '../../containers/PaletteDisplay';
 
 import * as actions from '../../actions/index';
+
 import { fetchPalettes } from '../../utility/fetchPalettes';
 
 export class App extends Component {
@@ -22,29 +24,31 @@ export class App extends Component {
     this.getData()
   }
 
-  getData = async () => {
-    console.log('in get method');
+  getData = () => {
+    // this.props.setLoading(false)
+    // try {
+    //   const response = await fetch(`http://localhost:3001/api/v1/weather`)
+    //   if(!response.ok) { throw new Error('Fetch Call Cannot Be Made')}
+    //   const data = await response.json()
+    //
+    // } catch (error) {
+    //   this.props.setError('Fetch Call Cannont')
+    // }
   }
 
 
   render(){
+    const { loading } = this.props;
 
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div className="screen">
+        {
+          loading ?
+          <Loading /> :
+          <PaletteDisplay />
+        }
+        </div>
       </div>
     )
   }

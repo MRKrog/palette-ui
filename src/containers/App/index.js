@@ -21,21 +21,20 @@ export class App extends Component {
   }
 
   componentDidMount() {
-    this.getData()
+    this.getProjects()
   }
 
-  getData = () => {
-    // this.props.setLoading(false)
-    // try {
-    //   const response = await fetch(`http://localhost:3001/api/v1/weather`)
-    //   if(!response.ok) { throw new Error('Fetch Call Cannot Be Made')}
-    //   const data = await response.json()
-    //
-    // } catch (error) {
-    //   this.props.setError('Fetch Call Cannont')
-    // }
+  getProjects = async () => {
+    try {
+      const response = await fetch(`http://localhost:3001/api/v1/projects`)
+      if(!response.ok) { throw new Error('Fetch Call Cannot Be Made')}
+      const data = await response.json()
+      this.setState({ data })
+      this.props.setLoading(false)
+    } catch (error) {
+      this.props.setError('Fetch Call Cannont')
+    }
   }
-
 
   render(){
     const { loading } = this.props;

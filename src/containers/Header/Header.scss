@@ -1,0 +1,18 @@
+.Header {
+  display: flex;
+  height: 8%;
+  border-bottom: #231f20 solid 4px;
+  background: #231f20;
+  color: #fff;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+
+  h2 {
+    margin: 0;
+  }
+
+  button {
+    outline: none;
+  }
+}

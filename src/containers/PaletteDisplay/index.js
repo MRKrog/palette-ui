@@ -2,17 +2,22 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-export class PaletteDisplay extends Component {
-  constructor() {
-    super()
-    this.state = {
+// import { Loading } from '../../components/Loading';
+import Color from '../Color'
 
-    }
-  }
+export class PaletteDisplay extends Component {
+
   render(){
+    const { currentPalette } = this.props;
+
     return (
       <div className="PaletteDisplay">
-        <h1>Palette Display</h1>
+        {
+          currentPalette.length &&
+          currentPalette.map((color, index) => {
+            return <Color key={color.color} {...color} id={index}/>
+          })
+        }
       </div>
     )
   }
@@ -20,7 +25,7 @@ export class PaletteDisplay extends Component {
 
 
 export const mapStateToProps = (state) => ({
-
+  currentPalette: state.currentPalette
 })
 
 export const mapDispatchToProps = (dispatch) => ({
@@ -28,7 +33,7 @@ export const mapDispatchToProps = (dispatch) => ({
 })
 
 PaletteDisplay.propTypes = {
-
+  currentPalette: PropTypes.array,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PaletteDisplay);

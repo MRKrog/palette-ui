@@ -1,0 +1,28 @@
+.Color {
+  display: flex;
+  width: 20%;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+
+  .LockBtn {
+    margin: 0;
+
+    button {
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        max-width: 50px;
+      }
+    }
+  }
+
+  .ColorCode {
+    margin: 0;
+  }
+
+}

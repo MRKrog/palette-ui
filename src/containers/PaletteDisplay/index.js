@@ -15,7 +15,7 @@ export class PaletteDisplay extends Component {
         {
           currentPalette.length &&
           currentPalette.map((color, index) => {
-            return <Color key={color} color={color} />
+            return <Color key={color.color} {...color} id={index}/>
           })
         }
       </div>

@@ -20,11 +20,11 @@ export class App extends Component {
     super();
     this.state = {
       colorPalette: [
-        { color: '', locked: false },
-        { color: '', locked: false },
-        { color: '', locked: false },
-        { color: '', locked: false },
-        { color: '', locked: false }
+        { color: '#ffffff', locked: false },
+        { color: '#ffffff', locked: true },
+        { color: '#ffffff', locked: false },
+        { color: '#ffffff', locked: false },
+        { color: '#ffffff', locked: false }
       ]
     }
   }

@@ -5,11 +5,16 @@ import * as actions from '../../actions/index';
 import { generateColors } from '../../utility/generateColors';
 
 export class Header extends Component {
-
+  constructor() {
+    super()
+    this.state = {
+      color: ''
+    }
+  }
   handleGenerate = () => {
-    const { currentPalette, setPalette } = this.props;
+    const { currentPalette } = this.props;
     const randomColors = generateColors(currentPalette)
-    setPalette(randomColors);
+    this.props.setPalette(randomColors);
   }
 
   render() {

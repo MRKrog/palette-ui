@@ -4,9 +4,13 @@ export const paletteReducer = (state = [], action) => {
       console.log('statePalette', action.palette);
       return action.palette
     case 'SET_LOCK':
-      console.log(action.colorID);
-      console.log('stateLock', state);
-      break;
+      const colorPalette = state.map((color, index) => {
+        if(index == action.colorID){
+          color.locked = !color.locked
+        }
+        return color
+      })
+      return colorPalette
     default:
       return state
   }

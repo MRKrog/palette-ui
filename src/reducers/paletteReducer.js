@@ -5,7 +5,7 @@ export const paletteReducer = (state = [], action) => {
       return action.palette
     case 'SET_LOCK':
       const colorPalette = state.map((color, index) => {
-        if(index == action.colorID){
+        if(index === action.colorID){
           color.locked = !color.locked
         }
         return color

@@ -10,7 +10,7 @@ import PaletteDisplay from '../PaletteDisplay';
 
 import * as actions from '../../actions/index';
 
-// import { fetchPalettes } from '../../utility/fetchPalettes';
+import { fetchPalettes } from '../../utility/fetchPalettes';
 import { generateColors } from '../../utility/generateColors';
 
 
@@ -25,19 +25,28 @@ export class App extends Component {
         { color: '#ffffff', locked: false },
         { color: '#ffffff', locked: false },
         { color: '#ffffff', locked: false }
-      ]
+      ],
+      project: []
     }
   }
 
   componentDidMount() {
-    this.setPalette()
+    this.setPalette();
+    this.fetchTest();
+  }
+
+  fetchTest = async () => {
+    // Test Backend Call Working
+    const response = await fetchPalettes('http://localhost:3001/api/v1/projects/8')
+    console.log(response);
+    this.setState({ project: response })
+    this.props.setLoading(false)
   }
 
   setPalette = () => {
     const { colorPalette } = this.state;
     const randomColors = generateColors(colorPalette)
     this.props.setPalette(randomColors)
-    this.props.changeLoading(true)
   }
 
   render(){
@@ -60,7 +69,7 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   setError: (data) => dispatch(actions.setError(data)),
-  changeLoading: (data) => dispatch(actions.setLoading(data)),
+  setLoading: (data) => dispatch(actions.setLoading(data)),
   setPalette: (data) => dispatch(actions.setPalette(data)),
 })
 

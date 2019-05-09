@@ -10,12 +10,12 @@ import unlockIcon from '../../media/icons/unlock-alt-solid.svg';
 export class Color extends Component {
 
   handleLock = (id) => {
-    this.props.setLock(id)
+    this.props.setLock(id);
   }
 
   render(){
-    let { color, id, locked } = this.props
-    let lockStatus = locked ? lockIcon : unlockIcon
+    let { color, id, locked } = this.props;
+    let lockStatus = locked ? lockIcon : unlockIcon;
 
     return (
       <div className="Color" style={{backgroundColor: this.props.color}}>

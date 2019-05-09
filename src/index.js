@@ -10,7 +10,7 @@ import './index.scss';
 import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
 
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom';
 
 const store = createStore(
   rootReducer,

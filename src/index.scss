@@ -4,11 +4,15 @@ $fontRoboto: 'Roboto', sans-serif;
 $fontRobotoCond: 'Roboto Condensed', sans-serif;
 $fontOswald: 'Oswald', sans-serif;
 
+$break-large: 825px;
+
 @import './containers/App/App';
 @import './containers/PaletteDisplay/PaletteDisplay';
 @import './containers/ProjectDisplay/ProjectDisplay';
+@import './containers/Projects/Projects';
 @import './containers/Color/Color';
 @import './containers/Header/Header';
+@import './containers/Modal/Modal';
 
 @import './components/Loading/Loading';
 
@@ -18,7 +22,7 @@ $fontOswald: 'Oswald', sans-serif;
 }
 
 html {
-  background-image: url('./media/bg.jpg');
+  background: #21222D;
   background-size: cover;
   height: 100%;
   background-repeat: round;

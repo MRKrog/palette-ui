@@ -1,18 +1,51 @@
 .Header {
   display: flex;
-  height: 8%;
-  border-bottom: #231f20 solid 4px;
-  background: #231f20;
+  height: 9%;
+  border-bottom: #231f20 solid 3px;
+  background: #21222D;
   color: #fff;
   justify-content: space-between;
   align-items: center;
-  padding: 1em;
+  padding: 2em;
 
   h2 {
     margin: 0;
   }
 
-  button {
-    outline: none;
+  .btnContainer {
+
+    button {
+      width: 45px;
+      outline: none;
+      background-color: #F18805;
+      font-family: $fontRobotoCond;
+      color: #fff;
+      border: none;
+      font-size: 1.5em;
+      line-height: 1.5;
+      cursor: pointer;
+      opacity: 1;
+      transition: all .5s ease;
+
+      &:hover {
+        opacity: .6;
+      }
+    }
+
+    button:first-child {
+      border-top-left-radius: 35px;
+      border-bottom-left-radius: 35px;
+      padding-right: 0em;
+      margin-right: .1em;
+    }
+
+    button:last-child {
+      border-top-right-radius: 35px;
+      border-bottom-right-radius: 35px;
+      padding-left: 0em;
+    }
+
   }
+
+
 }

@@ -5,6 +5,13 @@
   align-items: center;
   flex-direction: column;
 
+  @media screen and (max-width: $break-large) {
+    width: 100%;
+    height: 20%;
+    justify-content: center;
+    flex-direction: row;
+  }
+
   .LockBtn {
     margin: 0;
 
@@ -17,12 +24,21 @@
       img {
         width: 100%;
         max-width: 50px;
+        opacity: 0.6;
       }
     }
   }
 
   .ColorCode {
     margin: 0;
+    h3 {
+      color: #231f20;
+      opacity: .6;
+      text-transform: uppercase;
+      font-size: 2em;
+      font-family: $fontRoboto;
+      letter-spacing: .01em;
+    }
   }
 
 }

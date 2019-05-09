@@ -1,4 +1,9 @@
 .PaletteDisplay {
   display: flex;
-  height: 92%;
+  height: 84%;
+
+  @media screen and (max-width: $break-large) {
+    flex-direction: column;
+  }
+
 }

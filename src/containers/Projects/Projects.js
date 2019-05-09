@@ -4,27 +4,16 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions/index';
 import { generateColors } from '../../utility/generateColors';
 
-export class Header extends Component {
-  constructor() {
-    super()
-    this.state = {
-      color: ''
-    }
-  }
-  handleGenerate = () => {
-    const { currentPalette } = this.props;
-    const randomColors = generateColors(currentPalette)
-    this.props.setPalette(randomColors);
-  }
+export class Projects extends Component {
 
   render() {
     return (
-      <div className="Header">
+      <div className="Projects">
         <div>
           <h2>Palette Picker</h2>
         </div>
         <div>
-          <button onClick={this.handleGenerate}>Generate</button>
+          <button>Generate</button>
         </div>
       </div>
     )
@@ -39,8 +28,8 @@ export const mapDispatchToProps = (dispatch) => ({
   setPalette: (data) => dispatch(actions.setPalette(data)),
 })
 
-Header.propTypes = {
+Projects.propTypes = {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Projects);

@@ -4,9 +4,11 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 // import { Loading } from '../../components/Loading';
-import Header from '..//Header';
+import Header from '../Header/Header';
 import PaletteDisplay from '../PaletteDisplay';
-// import { ProjectDisplay } from '../ProjectDisplay';
+import Button from '@material-ui/core/Button';
+import ProjectDisplay from '../ProjectDisplay';
+import Modal from '../Modal/Modal';
 
 import * as actions from '../../actions/index';
 
@@ -55,6 +57,11 @@ export class App extends Component {
       <div className="App">
         <Header />
         <PaletteDisplay />
+        <ProjectDisplay />
+        {
+          this.props.modalDisplay &&
+          <Modal />
+        }
       </div>
     )
   }
@@ -64,17 +71,19 @@ export class App extends Component {
 export const mapStateToProps = (state) => ({
   error: state.error,
   loading: state.loading,
-  currentPalette: state.currentPalette
+  currentPalette: state.currentPalette,
+  modalDisplay: state.modalDisplay,
 })
 
 export const mapDispatchToProps = (dispatch) => ({
   setError: (data) => dispatch(actions.setError(data)),
   setLoading: (data) => dispatch(actions.setLoading(data)),
   setPalette: (data) => dispatch(actions.setPalette(data)),
+  setModal: (data) => dispatch(actions.setModal(data)),
 })
 
 App.propTypes = {
   data: PropTypes.array,
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

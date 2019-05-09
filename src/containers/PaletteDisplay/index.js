@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 // import { Loading } from '../../components/Loading';
-import Color from '../Color'
+import Color from '../Color/Color';
 
 export class PaletteDisplay extends Component {
 

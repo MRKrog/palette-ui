@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import * as actions from '../../actions/index';
 import { generateColors } from '../../utility/generateColors';
-import Button from '@material-ui/core/Button';
+import { Button, Tooltip } from '@material-ui/core';
 
 export class Header extends Component {
   constructor() {
@@ -31,8 +31,12 @@ export class Header extends Component {
           <h2>Palette Picker</h2>
         </div>
         <div className="btnContainer">
-          <button onClick={this.saveButton}><i className="fas fa-save"></i></button>
-          <button onClick={this.handleGenerate}><i className="fas fa-plus"></i></button>
+          <Tooltip title='Save Project'>
+            <button onClick={this.saveButton}><i className="fas fa-save"></i></button>
+          </Tooltip>
+          <Tooltip title='Generate Colors!'>
+            <button onClick={this.handleGenerate}><i className="fas fa-plus"></i></button>
+          </Tooltip>
         </div>
       </div>
     )

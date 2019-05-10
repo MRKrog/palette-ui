@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import * as actions from '../../actions/index';
 import { generateColors } from '../../utility/generateColors';
-import { Button, Tooltip } from '@material-ui/core';
+import { Tooltip } from '@material-ui/core';
 
 export class Header extends Component {
   constructor() {
@@ -21,7 +21,7 @@ export class Header extends Component {
 
   saveButton = () => {
     const { modal, setModal } = this.props;
-    this.props.setModal(modal)
+    setModal(modal)
   }
 
   render() {

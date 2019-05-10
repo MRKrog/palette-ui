@@ -1,27 +1,49 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
+import ProjectInfo from '../ProjectInfo/ProjectInfo';
 
 import * as actions from '../../actions/index';
-import { generateColors } from '../../utility/generateColors';
 
 export class Projects extends Component {
+  constructor() {
+    super()
+    this.state = {
+      newProject: ''
+    }
+  }
 
   render() {
+    const { allProjects } = this.props;
+
     return (
       <div className="Projects">
-        <div>
-          <h2>Palette Picker</h2>
+
+        <div className="Create-Project-Container">
+          <h2>Create A New Project</h2>
+          <form>
+            <input type="text" name="newProject" />
+            <button>Save Project</button>
+          </form>
         </div>
-        <div>
-          <button>Generate</button>
+        <div className="Current-Projects">
+          {
+            allProjects.length &&
+            allProjects.map((project, index) => {
+              return <ProjectInfo key={project.name} {...project} palettes={project.palettes} id={project.id}/>
+            })
+          }
         </div>
+
       </div>
     )
   }
 }
 
 export const mapStateToProps = (state) => ({
-  currentPalette: state.currentPalette
+  currentPalette: state.currentPalette,
+  allProjects: state.allProjects,
 })
 
 export const mapDispatchToProps = (dispatch) => ({
@@ -29,7 +51,7 @@ export const mapDispatchToProps = (dispatch) => ({
 })
 
 Projects.propTypes = {
-
+  currentPalette: PropTypes.array
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Projects);

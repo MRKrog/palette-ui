@@ -1,4 +1,4 @@
-export const fetchPalettes = async (url) => {
+export const fetchAll = async (url) => {
   try {
     const response = await fetch(url)
     if(!response.ok) { throw new Error('Fetch Call Cannot Be Made')}

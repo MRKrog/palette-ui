@@ -22,3 +22,8 @@ export const setModal = (status) => ({
   type: "SET_MODAL",
   status
 })
+
+export const setProjects = (projects) => ({
+  type: "SET_PROJECTS",
+  projects
+})

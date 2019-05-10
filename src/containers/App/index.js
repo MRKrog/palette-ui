@@ -6,13 +6,13 @@ import PropTypes from 'prop-types';
 // import { Loading } from '../../components/Loading';
 import Header from '../Header/Header';
 import PaletteDisplay from '../PaletteDisplay';
-import Button from '@material-ui/core/Button';
 import ProjectDisplay from '../ProjectDisplay';
 import Modal from '../Modal/Modal';
 
 import * as actions from '../../actions/index';
 
-import { fetchPalettes } from '../../utility/fetchPalettes';
+import { fetchAll } from '../../utility/fetchAll';
+import { cleanProjectsPalettes } from '../../utility/cleaner';
 import { generateColors } from '../../utility/generateColors';
 
 
@@ -39,9 +39,11 @@ export class App extends Component {
 
   fetchTest = async () => {
     // Test Backend Call Working
-    const response = await fetchPalettes('http://localhost:3001/api/v1/projects/8')
-    console.log(response);
-    this.setState({ project: response })
+    const allProjects = await fetchAll('http://localhost:3001/api/v1/projects');
+    const allPalettes = await fetchAll('http://localhost:3001/api/v1/palettes');
+    const combinedData = cleanProjectsPalettes(allProjects, allPalettes)
+    this.props.setProjects(combinedData)
+    // this.setState({ project: response })
     this.props.setLoading(false)
   }
 
@@ -67,12 +69,12 @@ export class App extends Component {
   }
 }
 
-
 export const mapStateToProps = (state) => ({
   error: state.error,
   loading: state.loading,
   currentPalette: state.currentPalette,
   modalDisplay: state.modalDisplay,
+  allProjects: state.allProjects,
 })
 
 export const mapDispatchToProps = (dispatch) => ({
@@ -80,6 +82,7 @@ export const mapDispatchToProps = (dispatch) => ({
   setLoading: (data) => dispatch(actions.setLoading(data)),
   setPalette: (data) => dispatch(actions.setPalette(data)),
   setModal: (data) => dispatch(actions.setModal(data)),
+  setProjects: (data) => dispatch(actions.setProjects(data)),
 })
 
 App.propTypes = {

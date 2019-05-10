@@ -1,5 +1,12 @@
 .Projects {
   display: flex;
+  flex-direction: column;
   padding: 2em;
-  background: #3D5A6C;
+  background: #34a0e2;
+
+  .Current-Projects {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
 }

@@ -42,7 +42,7 @@ export const mapDispatchToProps = (dispatch) => ({
 })
 
 Modal.propTypes = {
-
+  currentPalette: PropTypes.array
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);

@@ -6,12 +6,30 @@ import ProjectInfo from '../ProjectInfo/ProjectInfo';
 
 import * as actions from '../../actions/index';
 
+import { fetchAllProjects } from '../../thunks/fetchAllProjects';
+import { fetchOptions } from '../../utility/fetchOptions';
+import { fetchData } from '../../utility/fetchData';
+
 export class Projects extends Component {
   constructor() {
     super()
     this.state = {
-      newProject: ''
+      name: ''
     }
+  }
+
+  handleSendProject = async (event) => {
+    event.preventDefault();
+    const options = await fetchOptions('POST', this.state);
+    const response = await fetchData('http://localhost:3001/api/v1/projects', options)
+    this.props.fetchAllProjects();
+  }
+
+  handleChange = (event) => {
+    const { value, name } = event.target;
+    this.setState({
+      [name]: value
+    })
   }
 
   render() {
@@ -19,13 +37,18 @@ export class Projects extends Component {
 
     return (
       <div className="Projects">
-
         <div className="Create-Project-Container">
-          <h2>Create A New Project</h2>
-          <form>
-            <input type="text" name="newProject" />
-            <button>Save Project</button>
-          </form>
+          <h2>Project Information</h2>
+          <section className="Create-Info">
+            <form onSubmit={this.handleSendProject}>
+              <input type="text" onChange={this.handleChange}
+                                 value={this.state.name}
+                                 name="name"
+                                 placeholder="Create A New Project"
+                     />
+              <button>Save Project</button>
+            </form>
+          </section>
         </div>
         <div className="Current-Projects">
           {
@@ -35,23 +58,24 @@ export class Projects extends Component {
             })
           }
         </div>
-
       </div>
     )
   }
 }
 
 export const mapStateToProps = (state) => ({
-  currentPalette: state.currentPalette,
   allProjects: state.allProjects,
 })
 
 export const mapDispatchToProps = (dispatch) => ({
   setPalette: (data) => dispatch(actions.setPalette(data)),
+  setLoading: (data) => dispatch(actions.setLoading(data)),
+  setError: (data) => dispatch(actions.setError(data)),
+  fetchAllProjects: (data) => dispatch(fetchAllProjects(data)),
 })
 
 Projects.propTypes = {
-  currentPalette: PropTypes.array
+  allProjects: PropTypes.array
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Projects);

@@ -1,6 +1,40 @@
 .ProjectInfo {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  padding: 1em 2em;
+  width: 33%;
+  max-width: 33%;
+  padding: 1em 1em;
+
+  .Project-Info-Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3 {
+      margin: 0;
+      font-family: $fontRobotoCond;
+      color: #44474e87;
+      font-weight: 100;
+      font-size: 1.3em;
+      text-transform: uppercase;
+    }
+
+    .DeleteBtn {
+      background: $orange;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      padding: .5em .8em;
+
+      i {
+        color: #fff;
+        font-weight: 100;
+        font-size: 1.3em;
+      }
+    }
+
+  }
+
+
+
 }

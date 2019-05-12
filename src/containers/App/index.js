@@ -11,7 +11,8 @@ import Modal from '../Modal/Modal';
 
 import * as actions from '../../actions/index';
 
-import { fetchAll } from '../../utility/fetchAll';
+import { fetchAllProjects } from '../../thunks/fetchAllProjects';
+import { fetchData } from '../../utility/fetchData';
 import { cleanProjectsPalettes } from '../../utility/cleaner';
 import { generateColors } from '../../utility/generateColors';
 
@@ -34,18 +35,13 @@ export class App extends Component {
 
   componentDidMount() {
     this.setPalette();
-    this.fetchTest();
+    this.fetchAllData();
   }
 
-  fetchTest = async () => {
-    // Test Backend Call Working
-    const allProjects = await fetchAll('http://localhost:3001/api/v1/projects');
-    const allPalettes = await fetchAll('http://localhost:3001/api/v1/palettes');
-    const combinedData = cleanProjectsPalettes(allProjects, allPalettes)
-    this.props.setProjects(combinedData)
-    // this.setState({ project: response })
-    this.props.setLoading(false)
+  fetchAllData = async () => {
+    this.props.fetchAllProjects()
   }
+
 
   setPalette = () => {
     const { colorPalette } = this.state;
@@ -82,7 +78,7 @@ export const mapDispatchToProps = (dispatch) => ({
   setLoading: (data) => dispatch(actions.setLoading(data)),
   setPalette: (data) => dispatch(actions.setPalette(data)),
   setModal: (data) => dispatch(actions.setModal(data)),
-  setProjects: (data) => dispatch(actions.setProjects(data)),
+  fetchAllProjects: (data) => dispatch(fetchAllProjects(data)),
 })
 
 App.propTypes = {

@@ -13,9 +13,48 @@
 .Modal-Content {
   background-color: #34a0e2;
   margin: 15% auto;
-  padding: 2em;
   width: 60%;
   box-shadow: 0px 2px 7px 1px #231f20d9;
   border-radius: 5px;
   color:#fff;
+
+  .Modal-Header {
+    display: flex;
+    justify-content: flex-end;
+    padding: .3em;
+
+    button {
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 1.5em;
+      padding: 0;
+      margin: 0;
+      line-height: 1;
+      transition: all .3s ease;
+      opacity: .5;
+
+      &:hover {
+        opacity: .8;
+      }
+
+      i {
+        color: #00274a;
+      }
+    }
+  }
+
+  .Modal-Body {
+    display: flex;
+    flex-direction: column;
+
+    .Modal-Palette {
+      display: flex;
+
+      .Modal-Color {
+        width: 20%;
+      }
+    }
+  }
 }

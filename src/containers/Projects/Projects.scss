@@ -1,12 +1,68 @@
 .Projects {
   display: flex;
   flex-direction: column;
-  padding: 2em;
+  // padding: 1em;
   background: #34a0e2;
+
+  .Create-Project-Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #21222D;
+    padding: .5em 1em;
+
+    h2 {
+      margin: 0;
+      font-family: $fontRobotoCond;
+      color: #ffffff29;
+      font-weight: 100;
+      font-size: 1.8em;
+    }
+
+    .Create-Info {
+      display: flex;
+    }
+
+    form {
+      display: flex;
+
+      input {
+        border: none;
+        position: relative;
+        z-index: 9;
+        right: -.5em;
+        outline: none;
+        padding: .5em 1em;
+        font-size: .9em;
+        border-radius: 5px;
+        color: #231f20;
+        border: #f18805 solid 3px;
+        font-family: $fontRobotoCond;
+      }
+
+      button {
+        font-family: $fontRobotoCond;
+        border: none;
+        background: #F18805;
+        outline: none;
+        color: #fff;
+        font-size: .9em;
+        font-weight: bold;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        text-transform: uppercase;
+        z-index: 10;
+        cursor: pointer;
+      }
+    }
+
+  }
 
   .Current-Projects {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+
+
   }
 }

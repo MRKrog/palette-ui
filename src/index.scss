@@ -6,13 +6,18 @@ $fontOswald: 'Oswald', sans-serif;
 
 $break-large: 825px;
 
+$dark-blue: #21222D;
+$orange: #F18805;
+$light-blue: #34a0e2;
+
 @import './containers/App/App';
 @import './containers/PaletteDisplay/PaletteDisplay';
-@import './containers/ProjectDisplay/ProjectDisplay';
-@import './containers/Projects/Projects';
 @import './containers/Color/Color';
 @import './containers/Header/Header';
 @import './containers/Modal/Modal';
+
+@import './containers/ProjectDisplay/ProjectDisplay';
+@import './containers/Projects/Projects';
 @import './containers/ProjectInfo/ProjectInfo';
 @import './containers/PaletteInfo/PaletteInfo';
 

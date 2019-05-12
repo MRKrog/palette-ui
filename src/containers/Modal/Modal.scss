@@ -7,13 +7,14 @@
   height: 100%;
   overflow: auto;
   background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.5);
 }
 
 .Modal-Content {
-  background-color: #34a0e2;
+  background-color: #0e2c3e;
   margin: 15% auto;
   width: 60%;
+  max-width: 550px;
   box-shadow: 0px 2px 7px 1px #231f20d9;
   border-radius: 5px;
   color:#fff;
@@ -40,7 +41,7 @@
       }
 
       i {
-        color: #00274a;
+        color: #a7a7a7;
       }
     }
   }
@@ -48,20 +49,108 @@
   .Modal-Body {
     display: flex;
     flex-direction: column;
+    padding: 0 1em 1em;
+    text-align: left;
 
     h3 {
       margin: 0;
+      color: #ffffff5c;
+      font-weight: 100;
+      font-size: 1.6em;
+      letter-spacing: .04em;
+      text-transform: uppercase;
     }
 
     form {
-      select:invalid { color: gray; }
+      padding: .5em 0 .8em 0;
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      select {
+        cursor: pointer;
+        font-family: $fontRobotoCond;
+        outline: none;
+        color: #fff;
+        background: #F18805;
+        font-size: .9em;
+        font-weight: 500;
+        text-transform: uppercase;
+        border: none;
+        height: 40px;
+        z-index: 10;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        width: 25%;
+        transition: all .3s ease;
+
+        &:hover {
+          background: #ff9d24;
+        }
+
+        option {
+          font-family: $fontRobotoCond;
+        }
+      }
+
+      input {
+        width: 50%;
+        border: none;
+        position: relative;
+        z-index: 9;
+        left: -.5em;
+        outline: none;
+        padding: .53em 1em;
+        font-size: .9em;
+        border-radius: 5px;
+        color: #231f20;
+        border: #f18805 solid 3px;
+        font-family: $fontRobotoCond;
+      }
+
+      button {
+        width: 25%;
+        position: relative;
+        left: -1em;
+        height: 40px;
+        font-family: $fontRobotoCond;
+        border: none;
+        background: #F18805;
+        outline: none;
+        color: #fff;
+        font-size: .9em;
+        font-weight: bold;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        text-transform: uppercase;
+        z-index: 10;
+        cursor: pointer;
+        transition: all .3s ease;
+
+        &:hover {
+          background: #ff9d24;
+        }
+      }
+
+
     }
 
     .Modal-Palette {
       display: flex;
 
+      .Modal-Color:first-child {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+
+      .Modal-Color:last-child {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+
       .Modal-Color {
         width: 20%;
+        height: 41px;
       }
     }
   }

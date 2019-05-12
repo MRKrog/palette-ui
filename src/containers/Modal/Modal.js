@@ -58,24 +58,26 @@ class Modal extends Component {
         <div className="Modal-Content">
           <section className="Modal-Header">
             <button onClick={this.handleClose}>
-              <i className="fas fa-window-close"></i>
+              <i className="fas fa-times"></i>
             </button>
           </section>
           <section className="Modal-Body">
             <h3>Save Palette To Project</h3>
             <form onSubmit={this.handleSendPalette}>
+
               <select required name="projectId" value={this.state.projectId} onChange={this.handleChange}>
-                <option value="" disabled hidden>Choose Project ...</option>
+                <option value="" disabled hidden>Choose Project</option>
                 {allProjects.map(project =>
                   <option key={project.name} value={project.id} name="projectId">{project.name}</option>
                 )}
               </select>
-              <input type="text" onChange={this.handleChange}
-                                 value={this.state.name}
-                                 name="paletteName"
-                                 placeholder="Palette To Save"
-                     />
-              <button>Save Palette</button>
+                <input type="text" onChange={this.handleChange}
+                                   value={this.state.name}
+                                   name="paletteName"
+                                   placeholder="Palette Name"
+                       />
+                <button>Save Palette</button>
+
             </form>
             <section className="Modal-Palette">
               {

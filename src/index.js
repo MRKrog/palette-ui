@@ -27,6 +27,5 @@ const router = (
   </Provider>
 )
 
-
 ReactDOM.render(router, document.getElementById('root'));
 serviceWorker.unregister();

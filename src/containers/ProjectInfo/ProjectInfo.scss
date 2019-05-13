@@ -1,40 +1,63 @@
 .ProjectInfo {
   display: flex;
   flex-direction: column;
-  width: 33%;
-  max-width: 33%;
-  padding: 1em 1em;
+  width: 30.9%;
+  max-width: 30.9%;
+  margin: 1em 1em;
+  background: rgba(138, 120, 255, 0.07);
+  border-radius: 3px;
+  box-shadow: 0px 1px 5px #231f2073;
+
+  &:nth-child(3n + 2){
+    margin: 1em 0;
+  }
 
   .Project-Info-Header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: .8em;
+    background: #44444454;
+    box-shadow: 0px 1px 1px 0px #00000030;
 
     h3 {
       margin: 0;
-      font-family: $fontRobotoCond;
-      color: #44474e87;
-      font-weight: 100;
-      font-size: 1.3em;
-      text-transform: uppercase;
+      color: #ffffff5e;
+      font-weight: 400;
+      font-size: 1.2em;
+      padding-left: .4em;
     }
 
     .DeleteBtn {
-      background: $orange;
       border: none;
+      background: #f188056b;
       outline: none;
-      border-radius: 5px;
-      padding: .5em .8em;
+      line-height: 1.8em;
+      padding: .3em .6em;
+      cursor: pointer;
+      transition: all .5s ease;
+      opacity: 1;
+
+      &:hover {
+        opacity: .5;
+      }
 
       i {
-        color: #fff;
+        color: #ffffff9c;
         font-weight: 100;
-        font-size: 1.3em;
+        font-size: 1.2em;
       }
     }
 
   }
 
-
+  p {
+    margin: 0;
+    margin-bottom: .6em;
+    margin-left: .6em;
+    font-family: $fontRobotoCond;
+    color: #ffffff29;
+    font-weight: 100;
+  }
 
 }

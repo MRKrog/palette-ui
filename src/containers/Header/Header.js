@@ -31,7 +31,7 @@ export class Header extends Component {
           <h2>Palette Picker</h2>
         </div>
         <div className="btnContainer">
-          <Tooltip title='Save Project'>
+          <Tooltip title='Save Palette To Project'>
             <button onClick={this.saveButton}><i className="fas fa-save"></i></button>
           </Tooltip>
           <Tooltip title='Generate Colors!'>

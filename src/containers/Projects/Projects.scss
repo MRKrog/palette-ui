@@ -1,8 +1,7 @@
 .Projects {
   display: flex;
   flex-direction: column;
-  // padding: 1em;
-  background: #34a0e2;
+  background: #0e2c3e;
 
   .Create-Project-Container {
     display: flex;
@@ -10,6 +9,7 @@
     align-items: center;
     background: #21222D;
     padding: .5em 1em;
+    box-shadow: 0px 2px 2px 0px #231f20;
 
     h2 {
       margin: 0;
@@ -33,9 +33,10 @@
         right: -.5em;
         outline: none;
         padding: .5em 1em;
-        font-size: .9em;
-        border-radius: 5px;
+        font-size: .8em;
         color: #231f20;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
         border: #f18805 solid 3px;
         font-family: $fontRobotoCond;
       }
@@ -53,6 +54,11 @@
         text-transform: uppercase;
         z-index: 10;
         cursor: pointer;
+        transition: all .3s ease;
+
+        &:hover {
+          background: #ff9d24;
+        }
       }
     }
 
@@ -62,7 +68,5 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-
-
   }
 }

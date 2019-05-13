@@ -45,6 +45,7 @@ export class Projects extends Component {
                                  value={this.state.name}
                                  name="name"
                                  placeholder="Create A New Project"
+                                 required
                      />
               <button>Save Project</button>
             </form>

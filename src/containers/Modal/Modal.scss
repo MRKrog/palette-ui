@@ -25,6 +25,7 @@
     padding: .3em;
 
     button {
+      position: absolute;
       background: none;
       border: none;
       outline: none;
@@ -58,14 +59,15 @@
       font-weight: 100;
       font-size: 1.6em;
       letter-spacing: .04em;
-      text-transform: uppercase;
     }
 
     form {
-      padding: .5em 0 .8em 0;
+      margin: .5em 0 .8em 0;
       display: flex;
       align-items: center;
       width: 100%;
+      background: #F18805;
+      border-radius: 5px;
 
       select {
         cursor: pointer;
@@ -83,6 +85,7 @@
         border-bottom-left-radius: 5px;
         width: 25%;
         transition: all .3s ease;
+        border: 0;
 
         &:hover {
           background: #ff9d24;
@@ -98,11 +101,9 @@
         border: none;
         position: relative;
         z-index: 9;
-        left: -.5em;
         outline: none;
         padding: .53em 1em;
         font-size: .9em;
-        border-radius: 5px;
         color: #231f20;
         border: #f18805 solid 3px;
         font-family: $fontRobotoCond;
@@ -111,7 +112,6 @@
       button {
         width: 25%;
         position: relative;
-        left: -1em;
         height: 40px;
         font-family: $fontRobotoCond;
         border: none;
@@ -119,16 +119,23 @@
         outline: none;
         color: #fff;
         font-size: .9em;
-        font-weight: bold;
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
         text-transform: uppercase;
         z-index: 10;
         cursor: pointer;
         transition: all .3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         &:hover {
           background: #ff9d24;
+        }
+
+        i {
+          font-size: .8em;
+          padding-left: .5em;
         }
       }
 

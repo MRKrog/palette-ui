@@ -8,15 +8,17 @@
   .ProjectBtn {
     background: #21222b;
     height: 100%;
-    color: #fff;
     letter-spacing: .05em;
     width: 100%;
-    font-size: 1.5em;
     padding: 0;
     line-height: 2;
     font-weight: bold;
     font-family: "Roboto Condensed", sans-serif;
     transition: all .5s ease;
+    color: #ffffff57;
+    font-weight: 100;
+    font-size: 1.8em;
+    text-transform: uppercase;
 
     .UpBtn {
       padding-left: .5em;

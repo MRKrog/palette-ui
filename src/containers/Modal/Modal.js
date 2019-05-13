@@ -8,7 +8,7 @@ import { fetchAllProjects } from '../../thunks/fetchAllProjects';
 import { fetchOptions } from '../../utility/fetchOptions';
 import { fetchData } from '../../utility/fetchData';
 
-class Modal extends Component {
+export class Modal extends Component {
   constructor() {
     super();
     this.state = {
@@ -108,7 +108,7 @@ export const mapDispatchToProps = (dispatch) => ({
 })
 
 Modal.propTypes = {
-  currentPalette: PropTypes.array
+  allProjects: PropTypes.array
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);

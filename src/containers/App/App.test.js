@@ -49,7 +49,7 @@ describe('App', () => {
       expect(wrapper).toMatchSnapshot()
     })
 
-    it('should fire handleEscape when handleKeydown is invoked with the code is Escape', () => {
+    it('should have default state', () => {
       expect(wrapper.state()).toEqual({
         colorPalette: [
           { color: '', locked: '' },

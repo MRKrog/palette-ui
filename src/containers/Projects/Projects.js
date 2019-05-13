@@ -70,8 +70,6 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   setPalette: (data) => dispatch(actions.setPalette(data)),
-  setLoading: (data) => dispatch(actions.setLoading(data)),
-  setError: (data) => dispatch(actions.setError(data)),
   fetchAllProjects: (data) => dispatch(fetchAllProjects(data)),
 })
 

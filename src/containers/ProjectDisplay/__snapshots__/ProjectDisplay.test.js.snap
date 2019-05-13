@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SwipeableTemporaryDrawer SwipeableTemporaryDrawer Component should match the snapshot 1`] = `
+<SwipeableTemporaryDrawer
+  classes={Object {}}
+/>
+`;

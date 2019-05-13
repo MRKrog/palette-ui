@@ -8,6 +8,8 @@ export const fetchAllProjects = () => {
       dispatch(actions.setLoading(true));
       const allProjects = await fetchData('http://localhost:3001/api/v1/projects');
       const allPalettes = await fetchData('http://localhost:3001/api/v1/palettes');
+      console.log(allProjects);
+      console.log(allPalettes);
       dispatch(actions.setLoading(false));
       const combinedData = cleanProjectsPalettes(allProjects, allPalettes)
       dispatch(actions.setProjects(combinedData));

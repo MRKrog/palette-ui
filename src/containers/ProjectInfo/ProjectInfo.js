@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
 import PaletteInfo from '../PaletteInfo/PaletteInfo';
-
 import { fetchAllProjects } from '../../thunks/fetchAllProjects';
 import { fetchDelete } from '../../thunks/fetchDelete';
-import { fetchData } from '../../utility/fetchData';
-
 import * as actions from '../../actions/index';
 
 export class ProjectInfo extends Component {
@@ -41,17 +37,15 @@ export class ProjectInfo extends Component {
   }
 }
 
-export const mapStateToProps = (state) => ({
-  allProjects: state.allProjects,
-})
-
 export const mapDispatchToProps = (dispatch) => ({
   fetchAllProjects: (data) => dispatch(fetchAllProjects(data)),
   fetchDelete: (data) => dispatch(fetchDelete(data)),
 })
 
 ProjectInfo.propTypes = {
-  allProjects: PropTypes.array
+  allProjects: PropTypes.array,
+  fetchAllProjects: PropTypes.func,
+  fetchDelete: PropTypes.func,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectInfo);
+export default connect(null, mapDispatchToProps)(ProjectInfo);

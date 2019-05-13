@@ -2,7 +2,7 @@ export const fetchData = async (url, body) => {
   try {
     const response = await fetch(url, body)
     const data = await response.json()
-    if(!response.ok) { throw new Error(`'Fetch Call Cannot Be Made' ${data}`)}
+    if(!response.ok) { throw new Error(`Fetch Call Cannot Be Made`)}
     return data;
   } catch (error) {
     return error;

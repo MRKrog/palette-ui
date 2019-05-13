@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal Modal Component should match the snapshot 1`] = `
+<div
+  className="Modal"
+>
+  <div
+    className="Modal-Content"
+  >
+    <section
+      className="Modal-Header"
+    >
+      <button
+        onClick={[Function]}
+      >
+        <i
+          className="fas fa-times"
+        />
+      </button>
+    </section>
+    <section
+      className="Modal-Body"
+    >
+      <h3>
+        Save Palette To Project
+      </h3>
+      <form
+        onSubmit={[Function]}
+      >
+        <select
+          name="projectId"
+          onChange={[Function]}
+          required={true}
+          value=""
+        >
+          <option
+            disabled={true}
+            hidden={true}
+            value=""
+          >
+            Choose Project
+          </option>
+          <option
+            key="Test Project"
+            name="projectId"
+            value={8}
+          >
+            Test Project
+          </option>
+        </select>
+        <input
+          name="paletteName"
+          onChange={[Function]}
+          placeholder="Palette Name"
+          required={true}
+          type="text"
+        />
+        <button>
+          Add Palette 
+          <i
+            className="fas fa-plus"
+          />
+        </button>
+      </form>
+      <section
+        className="Modal-Palette"
+      >
+        <div
+          className="Modal-Color"
+          key="#fffff"
+          style={
+            Object {
+              "backgroundColor": "#fffff",
+            }
+          }
+        >
+           
+        </div>
+        <div
+          className="Modal-Color"
+          key="#00000"
+          style={
+            Object {
+              "backgroundColor": "#00000",
+            }
+          }
+        >
+           
+        </div>
+        <div
+          className="Modal-Color"
+          key="#231f20"
+          style={
+            Object {
+              "backgroundColor": "#231f20",
+            }
+          }
+        >
+           
+        </div>
+        <div
+          className="Modal-Color"
+          key="#e6e6e6"
+          style={
+            Object {
+              "backgroundColor": "#e6e6e6",
+            }
+          }
+        >
+           
+        </div>
+        <div
+          className="Modal-Color"
+          key="#cccccc"
+          style={
+            Object {
+              "backgroundColor": "#cccccc",
+            }
+          }
+        >
+           
+        </div>
+      </section>
+    </section>
+  </div>
+</div>
+`;

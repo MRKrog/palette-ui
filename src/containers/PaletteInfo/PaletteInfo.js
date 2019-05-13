@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
 import { fetchAllProjects } from '../../thunks/fetchAllProjects';
 import { fetchDelete } from '../../thunks/fetchDelete';
-import { fetchData } from '../../utility/fetchData';
-
 import * as actions from '../../actions/index';
 
 export class PaletteInfo extends Component {
@@ -56,10 +53,6 @@ export class PaletteInfo extends Component {
   }
 }
 
-export const mapStateToProps = (state) => ({
-  allProjects: state.allProjects,
-})
-
 export const mapDispatchToProps = (dispatch) => ({
   setPalette: (data) => dispatch(actions.setPalette(data)),
   fetchAllProjects: (data) => dispatch(fetchAllProjects(data)),
@@ -67,7 +60,9 @@ export const mapDispatchToProps = (dispatch) => ({
 })
 
 PaletteInfo.propTypes = {
-  allProjects: PropTypes.array
+  setPalette: PropTypes.func,
+  fetchAllProjects: PropTypes.func,
+  fetchDelete: PropTypes.func,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PaletteInfo);
+export default connect(null, mapDispatchToProps)(PaletteInfo);

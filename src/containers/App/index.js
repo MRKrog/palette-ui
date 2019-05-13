@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-// import { Loading } from '../../components/Loading';
 import Header from '../Header/Header';
 import PaletteDisplay from '../PaletteDisplay';
 import ProjectDisplay from '../ProjectDisplay';
@@ -12,8 +11,6 @@ import Modal from '../Modal/Modal';
 import * as actions from '../../actions/index';
 
 import { fetchAllProjects } from '../../thunks/fetchAllProjects';
-import { fetchData } from '../../utility/fetchData';
-import { cleanProjectsPalettes } from '../../utility/cleaner';
 import { generateColors } from '../../utility/generateColors';
 
 export class App extends Component {
@@ -26,29 +23,22 @@ export class App extends Component {
         { color: '', locked: '' },
         { color: '', locked: '' },
         { color: '', locked: '' }
-      ],
-      project: []
+      ]
     }
   }
 
   componentDidMount() {
-    this.setPalette();
-    this.fetchAllData();
-  }
-
-  fetchAllData = async () => {
+    this.generatePalette();
     this.props.fetchAllProjects()
   }
 
-
-  setPalette = () => {
+  generatePalette = () => {
     const { colorPalette } = this.state;
     const randomColors = generateColors(colorPalette)
     this.props.setPalette(randomColors)
   }
 
   render(){
-
     return (
       <div className="App">
         <Header />
@@ -64,23 +54,18 @@ export class App extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-  error: state.error,
-  loading: state.loading,
-  currentPalette: state.currentPalette,
   modalDisplay: state.modalDisplay,
-  allProjects: state.allProjects,
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  setError: (data) => dispatch(actions.setError(data)),
-  setLoading: (data) => dispatch(actions.setLoading(data)),
   setPalette: (data) => dispatch(actions.setPalette(data)),
-  setModal: (data) => dispatch(actions.setModal(data)),
   fetchAllProjects: (data) => dispatch(fetchAllProjects(data)),
 })
 
 App.propTypes = {
-  data: PropTypes.array,
+  modalDisplay: PropTypes.bool,
+  setPalette: PropTypes.func,
+  fetchAllProjects: PropTypes.func
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

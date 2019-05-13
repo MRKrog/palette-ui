@@ -22,17 +22,12 @@ export class PaletteDisplay extends Component {
   }
 }
 
-
 export const mapStateToProps = (state) => ({
   currentPalette: state.currentPalette
-})
-
-export const mapDispatchToProps = (dispatch) => ({
-
 })
 
 PaletteDisplay.propTypes = {
   currentPalette: PropTypes.array,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PaletteDisplay);
+export default connect(mapStateToProps)(PaletteDisplay);

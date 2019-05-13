@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaletteInfo PaletteInfo Component should match the snapshot 1`] = `
+<div
+  className="PaletteInfo"
+>
+  <h4>
+    Mikes Pal
+  </h4>
+  <ul>
+    <li
+      style={
+        Object {
+          "backgroundColor": "#93125a",
+        }
+      }
+    >
+       
+    </li>
+    <li
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+        }
+      }
+    >
+       
+    </li>
+    <li
+      style={
+        Object {
+          "backgroundColor": "#f13470",
+        }
+      }
+    >
+       
+    </li>
+    <li
+      style={
+        Object {
+          "backgroundColor": "#80064e",
+        }
+      }
+    >
+       
+    </li>
+    <li
+      style={
+        Object {
+          "backgroundColor": "#423c52",
+        }
+      }
+    >
+       
+    </li>
+  </ul>
+  <section
+    className="PaletteInfo-View"
+  >
+    <button
+      className="ShowBtn"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-eye"
+      />
+    </button>
+  </section>
+  <section
+    className="PaletteInfo-Delete"
+  >
+    <button
+      className="DeleteBtn"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-trash-alt"
+      />
+    </button>
+  </section>
+</div>
+`;

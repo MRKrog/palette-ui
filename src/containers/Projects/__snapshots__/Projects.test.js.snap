@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Projects Projects Component should match the snapshot 1`] = `
+<div
+  className="Projects"
+>
+  <div
+    className="Create-Project-Container"
+  >
+    <h2>
+      Project Information
+    </h2>
+    <section
+      className="Create-Info"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          name="name"
+          onChange={[Function]}
+          placeholder="Create A New Project"
+          required={true}
+          type="text"
+          value=""
+        />
+        <button>
+          Save Project
+        </button>
+      </form>
+    </section>
+  </div>
+  <div
+    className="Current-Projects"
+  >
+    <ConnectFunction
+      id={8}
+      key="Test Project"
+      name="Test Project"
+      palettes={
+        Array [
+          Object {
+            "color_1": "#93125a",
+            "color_2": "#ffffff",
+            "color_3": "#f13470",
+            "color_4": "#80064e",
+            "color_5": "#423c52",
+            "id": 15,
+            "name": "Mikes Pal",
+            "project_id": 8,
+          },
+        ]
+      }
+    />
+  </div>
+</div>
+`;

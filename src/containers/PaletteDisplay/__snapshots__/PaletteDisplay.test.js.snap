@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaletteDisplay PaletteDisplay Component should match the snapshot 1`] = `
+<div
+  className="PaletteDisplay"
+>
+  <ConnectFunction
+    color="#fffff"
+    id={0}
+    key="#fffff"
+    locked={false}
+  />
+  <ConnectFunction
+    color="#00000"
+    id={1}
+    key="#00000"
+    locked={false}
+  />
+  <ConnectFunction
+    color="#231f20"
+    id={2}
+    key="#231f20"
+    locked={false}
+  />
+  <ConnectFunction
+    color="#e6e6e6"
+    id={3}
+    key="#e6e6e6"
+    locked={false}
+  />
+  <ConnectFunction
+    color="#cccccc"
+    id={4}
+    key="#cccccc"
+    locked={false}
+  />
+</div>
+`;

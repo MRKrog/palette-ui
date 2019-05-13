@@ -43,7 +43,6 @@ export const mapDispatchToProps = (dispatch) => ({
 })
 
 ProjectInfo.propTypes = {
-  allProjects: PropTypes.array,
   fetchAllProjects: PropTypes.func,
   fetchDelete: PropTypes.func,
 }

@@ -75,8 +75,9 @@ class Modal extends Component {
                                    value={this.state.name}
                                    name="paletteName"
                                    placeholder="Palette Name"
+                                   required
                        />
-                <button>Save Palette</button>
+                <button>Add Palette <i className="fas fa-plus"></i></button>
 
             </form>
             <section className="Modal-Palette">

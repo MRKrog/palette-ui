@@ -43,7 +43,6 @@ class Modal extends Component {
       color_5: currentPalette[4].color,
       project_id: projectId
     }
-    // console.log(sendPalette);
     const options = await fetchOptions('POST', sendPalette);
     const response = await fetchData('http://localhost:3001/api/v1/palettes', options)
     this.props.fetchAllProjects();

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Color Color Component should match the snapshot 1`] = `
+<div
+  className="Color"
+  style={
+    Object {
+      "backgroundColor": undefined,
+    }
+  }
+>
+  <div
+    className="LockBtn"
+  >
+    <button
+      onClick={[Function]}
+    >
+      <img
+        className="Lock"
+        src="unlock-alt-solid.svg"
+      />
+    </button>
+  </div>
+  <div
+    className="ColorCode"
+  >
+    <h3 />
+  </div>
+</div>
+`;

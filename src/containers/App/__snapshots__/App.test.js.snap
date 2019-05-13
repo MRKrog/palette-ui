@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App App Component should match snapshot when modalDisplay is true 1`] = `
+<div
+  className="App"
+>
+  <ConnectFunction />
+  <ConnectFunction />
+  <WithStyles(SwipeableTemporaryDrawer) />
+  <ConnectFunction />
+</div>
+`;
+
+exports[`App App Component should match the snapshot 1`] = `
+<div
+  className="App"
+>
+  <ConnectFunction />
+  <ConnectFunction />
+  <WithStyles(SwipeableTemporaryDrawer) />
+</div>
+`;

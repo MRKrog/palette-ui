@@ -1,7 +1,6 @@
 import * as actions from '../actions/index';
 import { fetchData } from '../utility/fetchData';
 import { fetchOptions } from '../utility/fetchOptions';
-import { fetchAllProjects } from './fetchAllProjects';
 
 export const fetchDelete = (url) => {
   return async (dispatch) => {

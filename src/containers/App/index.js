@@ -16,18 +16,16 @@ import { fetchData } from '../../utility/fetchData';
 import { cleanProjectsPalettes } from '../../utility/cleaner';
 import { generateColors } from '../../utility/generateColors';
 
-
-
 export class App extends Component {
   constructor(){
     super();
     this.state = {
       colorPalette: [
-        { color: '#ffffff', locked: false },
-        { color: '#ffffff', locked: true },
-        { color: '#ffffff', locked: false },
-        { color: '#ffffff', locked: false },
-        { color: '#ffffff', locked: false }
+        { color: '', locked: '' },
+        { color: '', locked: '' },
+        { color: '', locked: '' },
+        { color: '', locked: '' },
+        { color: '', locked: '' }
       ],
       project: []
     }

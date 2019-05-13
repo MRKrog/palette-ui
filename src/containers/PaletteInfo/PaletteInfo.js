@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { fetchAllProjects } from '../../thunks/fetchAllProjects';
-import { fetchOptions } from '../../utility/fetchOptions';
+import { fetchDelete } from '../../thunks/fetchDelete';
 import { fetchData } from '../../utility/fetchData';
 
 import * as actions from '../../actions/index';
@@ -11,9 +11,21 @@ import * as actions from '../../actions/index';
 export class PaletteInfo extends Component {
 
   handleDelete = async (id) => {
-    const options = await fetchOptions('DELETE', {});
-    await fetchData(`http://localhost:3001/api/v1/palettes/${id}`, options)
+    const url = `http://localhost:3001/api/v1/palettes/${id}`;
+    await this.props.fetchDelete(url);
     this.props.fetchAllProjects();
+  }
+
+  handleGenerate = () => {
+    const { color_1, color_2, color_3, color_4, color_5 } = this.props;
+    let palette = [
+      { color: color_1, locked: true },
+      { color: color_2, locked: true },
+      { color: color_3, locked: true },
+      { color: color_4, locked: true },
+      { color: color_5, locked: true }
+    ]
+    this.props.setPalette(palette);
   }
 
   render() {
@@ -29,6 +41,11 @@ export class PaletteInfo extends Component {
           <li style={{backgroundColor: color_4}}>&nbsp;</li>
           <li style={{backgroundColor: color_5}}>&nbsp;</li>
         </ul>
+        <section className="PaletteInfo-View">
+          <button className="ShowBtn" onClick={this.handleGenerate}>
+            <i className="fas fa-eye"></i>
+          </button>
+        </section>
         <section className="PaletteInfo-Delete">
           <button className="DeleteBtn" onClick={() => this.handleDelete(id)}>
             <i className="fas fa-trash-alt"></i>
@@ -46,10 +63,11 @@ export const mapStateToProps = (state) => ({
 export const mapDispatchToProps = (dispatch) => ({
   setPalette: (data) => dispatch(actions.setPalette(data)),
   fetchAllProjects: (data) => dispatch(fetchAllProjects(data)),
+  fetchDelete: (data) => dispatch(fetchDelete(data)),
 })
 
 PaletteInfo.propTypes = {
-  currentPalette: PropTypes.array
+  allProjects: PropTypes.array
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PaletteInfo);

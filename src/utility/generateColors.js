@@ -1,4 +1,5 @@
 export const generateColors = (colorPalette) => {
+  console.log(colorPalette);
   let newPalette = [];
   for(let i = 0; i < 5; i++) {
     const { color, locked } = colorPalette[i]

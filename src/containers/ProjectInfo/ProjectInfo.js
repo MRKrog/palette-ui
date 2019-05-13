@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import PaletteInfo from '../PaletteInfo/PaletteInfo';
 
 import { fetchAllProjects } from '../../thunks/fetchAllProjects';
-import { fetchOptions } from '../../utility/fetchOptions';
+import { fetchDelete } from '../../thunks/fetchDelete';
 import { fetchData } from '../../utility/fetchData';
 
 import * as actions from '../../actions/index';
@@ -13,8 +13,8 @@ import * as actions from '../../actions/index';
 export class ProjectInfo extends Component {
 
   handleDelete = async (id) => {
-    const options = await fetchOptions('DELETE', {});
-    await fetchData(`http://localhost:3001/api/v1/projects/${id}`, options)
+    const url = `http://localhost:3001/api/v1/projects/${id}`;
+    await this.props.fetchDelete(url);
     this.props.fetchAllProjects();
   }
 
@@ -46,8 +46,8 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  setPalette: (data) => dispatch(actions.setPalette(data)),
   fetchAllProjects: (data) => dispatch(fetchAllProjects(data)),
+  fetchDelete: (data) => dispatch(fetchDelete(data)),
 })
 
 ProjectInfo.propTypes = {

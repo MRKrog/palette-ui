@@ -63,7 +63,6 @@ export class Modal extends Component {
           <section className="Modal-Body">
             <h3>Save Palette To Project</h3>
             <form onSubmit={this.handleSendPalette}>
-
               <select required name="projectId" value={this.state.projectId} onChange={this.handleChange}>
                 <option value="" disabled hidden>Choose Project</option>
                 {allProjects.map(project =>
@@ -77,7 +76,6 @@ export class Modal extends Component {
                                    required
                        />
                 <button>Add Palette <i className="fas fa-plus"></i></button>
-
             </form>
             <section className="Modal-Palette">
               {

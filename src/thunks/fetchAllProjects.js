@@ -6,8 +6,8 @@ export const fetchAllProjects = () => {
   return async (dispatch) => {
     try {
       dispatch(actions.setLoading(true));
-      const allProjects = await fetchData('http://localhost:3001/api/v1/projects');
-      const allPalettes = await fetchData('http://localhost:3001/api/v1/palettes');
+      const allProjects = await fetchData(process.env.REACT_APP_BACKEND_URL + '/api/v1/projects');
+      const allPalettes = await fetchData(process.env.REACT_APP_BACKEND_URL + '/api/v1/palettes');
       dispatch(actions.setLoading(false));
       const combinedData = cleanProjectsPalettes(allProjects, allPalettes)
       dispatch(actions.setProjects(combinedData));

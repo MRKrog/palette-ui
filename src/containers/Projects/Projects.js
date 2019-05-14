@@ -22,7 +22,7 @@ export class Projects extends Component {
     event.preventDefault();
     const { fetchAllProjects } = this.props;
     const options = await fetchOptions('POST', this.state);
-    const response = await fetchData('http://localhost:3001/api/v1/projects', options)
+    await fetchData('http://localhost:3001/api/v1/projects', options);
     fetchAllProjects();
   }
 
@@ -41,13 +41,13 @@ export class Projects extends Component {
         <div className='Create-Project-Container'>
           <h2>Project Information</h2>
           <section className='Create-Info'>
-            <form onSubmit={this.handleSendProject}>
+            <form className='Form-Send' onSubmit={this.handleSendProject}>
               <input type='text' onChange={this.handleChange}
                                  value={this.state.name}
                                  name='name'
                                  placeholder='Create A New Project'
                                  required
-                     />
+              />
               <button>Save Project</button>
             </form>
           </section>
@@ -55,7 +55,7 @@ export class Projects extends Component {
         <div className='Current-Projects'>
           {
             allProjects.length &&
-            allProjects.map((project, index) => {
+            allProjects.map(project => {
               return <ProjectInfo key={project.name} {...project} palettes={project.palettes} id={project.id}/>
             })
           }

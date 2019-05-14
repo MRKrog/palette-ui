@@ -10,7 +10,7 @@ export class PaletteDisplay extends Component {
     const { currentPalette } = this.props;
 
     return (
-      <div className="PaletteDisplay">
+      <div className='PaletteDisplay'>
         {
           currentPalette.length &&
           currentPalette.map((color, index) => {
@@ -22,9 +22,9 @@ export class PaletteDisplay extends Component {
   }
 }
 
-export const mapStateToProps = (state) => ({
+export const mapStateToProps = state => ({
   currentPalette: state.currentPalette
-})
+});
 
 PaletteDisplay.propTypes = {
   currentPalette: PropTypes.array,

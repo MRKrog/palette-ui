@@ -4,24 +4,25 @@ import PropTypes from 'prop-types';
 import PaletteInfo from '../PaletteInfo/PaletteInfo';
 import { fetchAllProjects } from '../../thunks/fetchAllProjects';
 import { fetchDelete } from '../../thunks/fetchDelete';
-import * as actions from '../../actions/index';
+import * as actions from '../../actions';
 
 export class ProjectInfo extends Component {
 
-  handleDelete = async (id) => {
+  handleDelete = async id => {
+    const { fetchDelete, fetchAllProjects } = this.props;
     const url = `http://localhost:3001/api/v1/projects/${id}`;
-    await this.props.fetchDelete(url);
-    this.props.fetchAllProjects();
+    await fetchDelete(url);
+    fetchAllProjects();
   }
 
   render() {
     const { name, id, palettes } = this.props;
     return (
-      <div className="ProjectInfo">
-        <section className="Project-Info-Header">
+      <div className='ProjectInfo'>
+        <section className='Project-Info-Header'>
           <h3>{name}</h3>
-          <button className="DeleteBtn" onClick={() => this.handleDelete(id)}>
-            <i className="fas fa-trash-alt"></i>
+          <button className='DeleteBtn' onClick={() => this.handleDelete(id)}>
+            <i className='fas fa-trash-alt'></i>
           </button>
         </section>
         {
@@ -37,10 +38,10 @@ export class ProjectInfo extends Component {
   }
 }
 
-export const mapDispatchToProps = (dispatch) => ({
-  fetchAllProjects: (data) => dispatch(fetchAllProjects(data)),
-  fetchDelete: (data) => dispatch(fetchDelete(data)),
-})
+export const mapDispatchToProps = dispatch => ({
+  fetchAllProjects: data => dispatch(fetchAllProjects(data)),
+  fetchDelete: data => dispatch(fetchDelete(data)),
+});
 
 ProjectInfo.propTypes = {
   fetchAllProjects: PropTypes.func,

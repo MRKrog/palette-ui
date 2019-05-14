@@ -12,29 +12,27 @@ const styles = {
 class SwipeableTemporaryDrawer extends Component {
   state = {
     bottom: false,
-  };
+  }
 
   toggleDrawer = (side, open) => () => {
     this.setState({
       [side]: open,
     });
-  };
+  }
 
   render() {
     return (
-      <div className="ProjectDisplay">
-
-        <Button onClick={this.toggleDrawer('bottom', true)} className="ProjectBtn">
-          Explore <i className="fas fa-angle-up UpBtn"></i>
+      <div className='ProjectDisplay'>
+        <Button onClick={this.toggleDrawer('bottom', true)} className='ProjectBtn'>
+          Explore <i className='fas fa-angle-up UpBtn'></i>
         </Button>
-
         <SwipeableDrawer
-          anchor="bottom"
+          anchor='bottom'
           open={this.state.bottom}
           onClose={this.toggleDrawer('bottom', false)}
           onOpen={this.toggleDrawer('bottom', true)}
         >
-          <div className="ProjectDisplay-Content">
+          <div className='ProjectDisplay-Content'>
             <Projects />
           </div>
         </SwipeableDrawer>

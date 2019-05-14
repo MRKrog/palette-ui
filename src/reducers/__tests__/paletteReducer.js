@@ -14,7 +14,6 @@ describe('modalReducer', () => {
     const expected = mockPalette;
     const result = paletteReducer('', action);
     expect(result).toEqual(expected);
-
   });
 
 });

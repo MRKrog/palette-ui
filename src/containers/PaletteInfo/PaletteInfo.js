@@ -8,13 +8,14 @@ import * as actions from '../../actions/index';
 export class PaletteInfo extends Component {
 
   handleDelete = async (id) => {
+    const { fetchDelete, fetchAllProjects } = this.props;
     const url = `http://localhost:3001/api/v1/palettes/${id}`;
-    await this.props.fetchDelete(url);
-    this.props.fetchAllProjects();
+    await fetchDelete(url);
+    fetchAllProjects();
   }
 
   handleGenerate = () => {
-    const { color_1, color_2, color_3, color_4, color_5 } = this.props;
+    const { color_1, color_2, color_3, color_4, color_5, setPalette } = this.props;
     let palette = [
       { color: color_1, locked: true },
       { color: color_2, locked: true },
@@ -22,14 +23,14 @@ export class PaletteInfo extends Component {
       { color: color_4, locked: true },
       { color: color_5, locked: true }
     ]
-    this.props.setPalette(palette);
+    setPalette(palette);
   }
 
   render() {
     const { name, id, color_1, color_2, color_3, color_4, color_5 } = this.props;
 
     return (
-      <div className="PaletteInfo">
+      <div className='PaletteInfo'>
         <h4>{name}</h4>
         <ul>
           <li style={{backgroundColor: color_1}}>&nbsp;</li>
@@ -38,14 +39,14 @@ export class PaletteInfo extends Component {
           <li style={{backgroundColor: color_4}}>&nbsp;</li>
           <li style={{backgroundColor: color_5}}>&nbsp;</li>
         </ul>
-        <section className="PaletteInfo-View">
-          <button className="ShowBtn" onClick={this.handleGenerate}>
-            <i className="fas fa-eye"></i>
+        <section className='PaletteInfo-View'>
+          <button className='ShowBtn' onClick={this.handleGenerate}>
+            <i className='fas fa-eye'></i>
           </button>
         </section>
-        <section className="PaletteInfo-Delete">
-          <button className="DeleteBtn" onClick={() => this.handleDelete(id)}>
-            <i className="fas fa-trash-alt"></i>
+        <section className='PaletteInfo-Delete'>
+          <button className='DeleteBtn' onClick={() => this.handleDelete(id)}>
+            <i className='fas fa-trash-alt'></i>
           </button>
         </section>
       </div>
@@ -53,11 +54,11 @@ export class PaletteInfo extends Component {
   }
 }
 
-export const mapDispatchToProps = (dispatch) => ({
-  setPalette: (data) => dispatch(actions.setPalette(data)),
-  fetchAllProjects: (data) => dispatch(fetchAllProjects(data)),
-  fetchDelete: (data) => dispatch(fetchDelete(data)),
-})
+export const mapDispatchToProps = dispatch => ({
+  setPalette: data => dispatch(actions.setPalette(data)),
+  fetchAllProjects: data => dispatch(fetchAllProjects(data)),
+  fetchDelete: data => dispatch(fetchDelete(data)),
+});
 
 PaletteInfo.propTypes = {
   setPalette: PropTypes.func,

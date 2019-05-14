@@ -33,14 +33,15 @@ export class App extends Component {
   }
 
   generatePalette = () => {
+    const { setPalette } = this.props;
     const { colorPalette } = this.state;
-    const randomColors = generateColors(colorPalette)
-    this.props.setPalette(randomColors)
+    const randomColors = generateColors(colorPalette);
+    setPalette(randomColors);
   }
 
   render(){
     return (
-      <div className="App">
+      <div className='App'>
         <Header />
         <PaletteDisplay />
         <ProjectDisplay />
@@ -53,14 +54,14 @@ export class App extends Component {
   }
 }
 
-export const mapStateToProps = (state) => ({
+export const mapStateToProps = state => ({
   modalDisplay: state.modalDisplay,
-})
+});
 
-export const mapDispatchToProps = (dispatch) => ({
-  setPalette: (data) => dispatch(actions.setPalette(data)),
-  fetchAllProjects: (data) => dispatch(fetchAllProjects(data)),
-})
+export const mapDispatchToProps = dispatch => ({
+  setPalette: data => dispatch(actions.setPalette(data)),
+  fetchAllProjects: data => dispatch(fetchAllProjects(data)),
+});
 
 App.propTypes = {
   modalDisplay: PropTypes.bool,

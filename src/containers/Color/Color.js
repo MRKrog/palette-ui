@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import * as actions from '../../actions/index';
+import * as actions from '../../actions';
 
 import lockIcon from '../../media/icons/lock-alt-solid.svg';
 import unlockIcon from '../../media/icons/unlock-alt-solid.svg';
 
 export class Color extends Component {
 
-  handleLock = (id) => {
-    this.props.setLock(id);
+  handleLock = id => {
+    const { setLock } = this.props;
+    setLock(id);
   }
 
   render(){
@@ -18,13 +19,13 @@ export class Color extends Component {
     let lockStatus = locked ? lockIcon : unlockIcon;
 
     return (
-      <div className="Color" style={{backgroundColor: this.props.color}}>
-        <div className="LockBtn">
+      <div className='Color' style={{ backgroundColor: this.props.color }}>
+        <div className='LockBtn'>
           <button onClick={() => this.handleLock(id)}>
-            <img src={lockStatus} className="Lock" alt={color} />
+            <img src={lockStatus} className='Lock' alt={color} />
           </button>
         </div>
-        <div className="ColorCode">
+        <div className='ColorCode'>
           <h3>{color}</h3>
         </div>
       </div>
@@ -32,9 +33,9 @@ export class Color extends Component {
   }
 }
 
-export const mapDispatchToProps = (dispatch) => ({
-  setLock: (data) => dispatch(actions.setLock(data)),
-})
+export const mapDispatchToProps = dispatch => ({
+  setLock: data => dispatch(actions.setLock(data)),
+});
 
 Color.propTypes = {
   setLock: PropTypes.func

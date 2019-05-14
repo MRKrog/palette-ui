@@ -9,7 +9,7 @@ export class PaletteInfo extends Component {
 
   handleDelete = async (id) => {
     const { fetchDelete, fetchAllProjects } = this.props;
-    const url = `${process.env.REACT_APP_BACKEND_URL + }/api/v1/palettes/${id}`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/api/v1/palettes/${id}`;
     await fetchDelete(url);
     fetchAllProjects();
   }

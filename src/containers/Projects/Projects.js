@@ -22,7 +22,7 @@ export class Projects extends Component {
     event.preventDefault();
     const { fetchAllProjects } = this.props;
     const options = await fetchOptions('POST', this.state);
-    await fetchData('http://localhost:3001/api/v1/projects', options);
+    await fetchData(process.env.REACT_APP_BACKEND_URL + '/api/v1/projects', options);
     fetchAllProjects();
   }
 

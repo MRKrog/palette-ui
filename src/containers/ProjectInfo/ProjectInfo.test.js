@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme'
 import { ProjectInfo, mapDispatchToProps } from './ProjectInfo';
 
-import * as actions from '../../actions/index';
+import * as actions from '../../actions';
 
 import { fetchAllProjects } from '../../thunks/fetchAllProjects';
 import { fetchDelete } from '../../thunks/fetchDelete';
@@ -27,8 +27,8 @@ describe('ProjectInfo', () => {
 
   describe('ProjectInfo Component', () => {
     let wrapper;
-    let mockfetchAllProjects = jest.fn()
-    let mockFetchDelete = jest.fn()
+    let mockfetchAllProjects = jest.fn();
+    let mockFetchDelete = jest.fn();
     let mockId = 8;
     let mockName = 'Test Project Title';
 
@@ -42,8 +42,32 @@ describe('ProjectInfo', () => {
     })
 
     it('should match the snapshot', () => {
-      expect(wrapper).toMatchSnapshot()
-    })
+      expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should handleDelete on click with the correct id passed in', () => {
+      const mockId = 8;
+      const instance = wrapper.instance();
+      const spy = jest.spyOn(instance, 'handleDelete');
+      const button = wrapper.find('.DeleteBtn');
+      button.simulate('click', mockId);
+      expect(spy).toHaveBeenCalledWith(mockId);
+    });
+
+    it('should call fetchAllProjects when handleSendProject is invoked with correct params', async () => {
+      const instance = wrapper.instance();
+      const mockId = 8;
+      await instance.handleDelete(mockId);
+      expect(mockfetchAllProjects).toHaveBeenCalled();
+    });
+
+    it('should fetchDelete with the correct url passed in', async () => {
+      const mockId = 8;
+      const mockUrl = `http://localhost:3001/api/v1/projects/${mockId}`;
+      const instance = wrapper.instance();
+      await instance.handleDelete(mockId);
+      expect(mockFetchDelete).toHaveBeenCalledWith(mockUrl);
+    });
 
   });
 

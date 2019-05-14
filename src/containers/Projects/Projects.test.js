@@ -1,9 +1,13 @@
 import React from 'react';
-import { shallow } from 'enzyme'
+import { shallow } from 'enzyme';
 import { Projects, mapStateToProps, mapDispatchToProps } from './Projects';
 
+import { fetchOptions } from '../../utility/fetchOptions';
+jest.mock('../../utility/fetchOptions');
 import { fetchAllProjects } from '../../thunks/fetchAllProjects';
 jest.mock('../../thunks/fetchAllProjects');
+import { fetchData } from '../../utility/fetchData';
+jest.mock('../../utility/fetchData');
 
 import * as actions from '../../actions/index';
 
@@ -30,25 +34,60 @@ describe('Projects', () => {
 
   describe('Projects Component', () => {
     let wrapper;
-    let mockfetchAllProjects = jest.fn()
-    let mockSetPalette = jest.fn()
+    let mockfetchAllProjects = jest.fn();
+    let mockSetPalette = jest.fn();
 
     beforeEach(() => {
       wrapper = shallow(<Projects allProjects={mockAllProjects}
-                                  fetchAllProjects={mockfetchAllProjects}
-                                  setPalette={mockSetPalette}
-                          />)
-    })
+        fetchAllProjects={mockfetchAllProjects}
+        setPalette={mockSetPalette}
+      />)
+    });
 
     it('should match the snapshot', () => {
       expect(wrapper).toMatchSnapshot()
-    })
+    });
 
     it('should have default state', () => {
       expect(wrapper.state()).toEqual({
         name: "",
       });
-    })
+    });
+
+    it('should call fetchOptions when handleSendProject is invoked with correct params', async () => {
+      const instance = wrapper.instance();
+      const event = { preventDefault: () => {}};
+      await instance.handleSendProject(event);
+      expect(fetchOptions).toHaveBeenCalledWith('POST', { name: '' });
+    });
+
+    it('should call fetchData when handleSendProject is invoked with the correct params', async () => {
+      const mockUrl = 'http://localhost:3001/api/v1/projects';
+      const instance = wrapper.instance();
+      const event = { preventDefault: () => {}};
+      await instance.handleSendProject(event);
+      const mockOptions = await fetchOptions('POST', { name: '' });
+      expect(fetchData).toHaveBeenCalledWith(mockUrl, mockOptions);
+    });
+
+    it('should call fetchAllProjects when handleSendProject is invoked with correct params', async () => {
+      const instance = wrapper.instance();
+      const event = { preventDefault: () => {}};
+      await instance.handleSendProject(event);
+      expect(mockfetchAllProjects).toHaveBeenCalled();
+    });
+
+    it.skip('should change state when handleChange is invoked', () => {
+      const instance = wrapper.instance();
+      const mockNameEvent = {
+        target: { name: 'name', value: 'super palette project palette' }
+      };
+      const spy = jest.spyOn(instance, 'handleSendProject');
+      const button = wrapper.find('.Form-Send');
+      // wrapper.instance().handleChange(mockNameEvent);
+      button.simulate('submit', mockNameEvent);
+      expect(spy).toHaveBeenCalledWith(mockNameEvent);
+    });
 
   });
 
@@ -79,23 +118,23 @@ describe('Projects', () => {
         { color: '#cccccc', locked: false }
       ];
       const mockDispatch = jest.fn();
-      const actionToDispatch = fetchAllProjects(mockData)
+      const actionToDispatch = fetchAllProjects(mockData);
       //Execution
       const mappedProps = mapDispatchToProps(mockDispatch);
       mappedProps.fetchAllProjects(mockData);
       //Expectation
-      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
-    })
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
 
     it('should call dispatch for setPalette', () => {
       const mockData = []
       const mockDispatch = jest.fn();
-      const actionToDispatch = actions.setPalette(mockData)
+      const actionToDispatch = actions.setPalette(mockData);
 
-      const mappedProps = mapDispatchToProps(mockDispatch)
-      mappedProps.setPalette(mockData)
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.setPalette(mockData);
 
-      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
     });
 
   });

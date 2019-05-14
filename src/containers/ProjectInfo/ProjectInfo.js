@@ -10,7 +10,7 @@ export class ProjectInfo extends Component {
 
   handleDelete = async id => {
     const { fetchDelete, fetchAllProjects } = this.props;
-    const url = `${process.env.REACT_APP_BACKEND_URL + }/api/v1/projects/${id}`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/api/v1/projects/${id}`;
     await fetchDelete(url);
     fetchAllProjects();
   }

@@ -3,6 +3,6 @@ export const projectReducer = (state = [], action) => {
     case 'SET_PROJECTS':
       return action.projects;
     default:
-      return state
+      return state;
   }
 }

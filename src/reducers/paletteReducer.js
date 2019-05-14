@@ -1,16 +1,16 @@
 export const paletteReducer = (state = [], action) => {
   switch (action.type) {
     case 'SET_PALETTE':
-      return action.palette
+      return action.palette;
     case 'SET_LOCK':
       const colorPalette = state.map((color, index) => {
-        if(index === action.colorID){
-          color.locked = !color.locked
+        if (index === action.colorID) {
+          color.locked = !color.locked;
         }
-        return color
+        return color;
       })
-      return colorPalette
+      return colorPalette;
     default:
-      return state
+      return state;
   }
 }

@@ -79,15 +79,14 @@ describe('Projects', () => {
     });
 
     it.skip('should change state when handleChange is invoked', () => {
-      const instance = wrapper.instance();
-      const mockNameEvent = {
-        target: { name: 'name', value: 'super palette project palette' }
-      };
-      const spy = jest.spyOn(instance, 'handleSendProject');
-      const button = wrapper.find('.Form-Send');
-      // wrapper.instance().handleChange(mockNameEvent);
-      button.simulate('submit', mockNameEvent);
-      expect(spy).toHaveBeenCalledWith(mockNameEvent);
+      const button = wrapper.find('.ProjectBtn');
+      button.simulate('click');
+
+      wrapper.instance().toggleDrawer('bottom', true);
+
+      expect(wrapper.state()).toEqual({
+        bottom: true
+      });
     });
 
   });

@@ -8,7 +8,7 @@ import PaletteDisplay from '../PaletteDisplay';
 import ProjectDisplay from '../ProjectDisplay';
 import Modal from '../Modal/Modal';
 
-import * as actions from '../../actions/index';
+import * as actions from '../../actions';
 
 import { fetchAllProjects } from '../../thunks/fetchAllProjects';
 import { generateColors } from '../../utility/generateColors';

@@ -21,7 +21,7 @@ export class Color extends Component {
     return (
       <div className='Color' style={{ backgroundColor: this.props.color }}>
         <div className='LockBtn'>
-          <button onClick={() => this.handleLock(id)}>
+          <button className='handleLockClick' onClick={() => this.handleLock(id)}>
             <img src={lockStatus} className='Lock' alt={color} />
           </button>
         </div>

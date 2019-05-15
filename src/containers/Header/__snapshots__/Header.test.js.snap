@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header should match the snapshot 1`] = `
+exports[`Header Header Component should match the snapshot 1`] = `
 <div
   className="Header"
 >
@@ -16,6 +16,7 @@ exports[`Header should match the snapshot 1`] = `
       title="Save Palette To Project"
     >
       <button
+        className="saveBtn"
         onClick={[Function]}
       >
         <i
@@ -27,6 +28,7 @@ exports[`Header should match the snapshot 1`] = `
       title="Generate Colors!"
     >
       <button
+        className="generateBtn"
         onClick={[Function]}
       >
         <i

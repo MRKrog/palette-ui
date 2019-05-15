@@ -2,11 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme'
 import { ProjectInfo, mapDispatchToProps } from './ProjectInfo';
 
-import * as actions from '../../actions';
-
 import { fetchAllProjects } from '../../thunks/fetchAllProjects';
 import { fetchDelete } from '../../thunks/fetchDelete';
-
 jest.mock('../../thunks/fetchAllProjects');
 jest.mock('../../thunks/fetchDelete');
 
@@ -34,12 +31,12 @@ describe('ProjectInfo', () => {
 
     beforeEach(() => {
       wrapper = shallow(<ProjectInfo palettes={mockPalettes}
-                                     fetchDelete={mockFetchDelete}
-                                     fetchAllProjects={mockfetchAllProjects}
-                                     id={mockId}
-                                     name={mockName}
-                        />)
-    })
+        fetchDelete={mockFetchDelete}
+        fetchAllProjects={mockfetchAllProjects}
+        id={mockId}
+        name={mockName}
+      />)
+    });
 
     it('should match the snapshot', () => {
       expect(wrapper).toMatchSnapshot();
@@ -74,25 +71,25 @@ describe('ProjectInfo', () => {
   describe('mapDispatchToProps', () => {
 
     it('should call dispatch for fetchDelete', () => {
-      const mockData = []
+      const mockData = [];
       const mockDispatch = jest.fn();
-      const actionToDispatch = fetchDelete(mockData)
+      const actionToDispatch = fetchDelete(mockData);
 
-      const mappedProps = mapDispatchToProps(mockDispatch)
-      mappedProps.fetchDelete(mockData)
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.fetchDelete(mockData);
 
-      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
     });
 
     it('should call dispatch for fetchAllProjects', () => {
-      const mockData = []
+      const mockData = [];
       const mockDispatch = jest.fn();
-      const actionToDispatch = fetchAllProjects(mockData)
+      const actionToDispatch = fetchAllProjects(mockData);
 
-      const mappedProps = mapDispatchToProps(mockDispatch)
-      mappedProps.fetchAllProjects(mockData)
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.fetchAllProjects(mockData);
 
-      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
     });
 
   });

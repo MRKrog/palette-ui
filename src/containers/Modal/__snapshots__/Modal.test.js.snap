@@ -49,6 +49,7 @@ exports[`Modal Modal Component should match the snapshot 1`] = `
           </option>
         </select>
         <input
+          className="paletteInput"
           name="paletteName"
           onChange={[Function]}
           placeholder="Palette Name"

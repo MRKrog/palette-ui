@@ -69,6 +69,7 @@ export class Modal extends Component {
                 )}
               </select>
                 <input type='text' onChange={this.handleChange}
+                                   className='paletteInput'
                                    value={this.state.name}
                                    name='paletteName'
                                    placeholder='Palette Name'

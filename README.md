@@ -1,7 +1,7 @@
 # Palette Picker
 
 ## Overview:
-
+Palette Picker is a single page application that gives you the ability to generate color palettes, lock colors, and save palettes to projects. This application utilizes a RESTful API to design patterns associated with building a single app across multiple repositories.
 
 ## Preview:
 
@@ -30,7 +30,6 @@ Start up in your terminal: ``` $ npm start ```
 Palette Picker was built using:
 - [SCSS](https://sass-lang.com/)
 - [React.js](https://reactjs.org/)
-- [React-Router](https://reacttraining.com/react-router/)
 - [Redux.js](https://redux.js.org/)
 - [Node.js](https://nodejs.org/en/)
 - [Express.js](https://expressjs.com/)

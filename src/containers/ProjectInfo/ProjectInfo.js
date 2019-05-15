@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import PaletteInfo from '../PaletteInfo/PaletteInfo';
 import { fetchAllProjects } from '../../thunks/fetchAllProjects';
 import { fetchDelete } from '../../thunks/fetchDelete';
-import * as actions from '../../actions';
 
 export class ProjectInfo extends Component {
 

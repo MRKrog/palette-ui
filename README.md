@@ -38,6 +38,9 @@ Palette Picker was built using:
 And tested using:
 - [Enzyme](https://airbnb.io/enzyme/) & [Jest](https://airbnb.io/enzyme/docs/guides/jest.html)
 
+### Wireframe
+![Image of Main Wireframes](images/palette-picker-wireframe.png)
+![Modal and pop up images](images/palette-pick-wireframe.png)
 ## Contributors
 - [Michael Krog](https://github.com/MRKrog)
 - [Isaac Sunoo](https://github.com/IsaacSunoo)

@@ -34,7 +34,6 @@ describe('Color', () => {
   });
 
   describe('mapDispatchToProps', () => {
-
     it('should call dispatch for fetchAllProjects', () => {
       //Setup
       const mockData = true;

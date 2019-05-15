@@ -28,8 +28,9 @@ export class App extends Component {
   }
 
   componentDidMount() {
+    const { fetchAllProjects } = this.props;
     this.generatePalette();
-    this.props.fetchAllProjects()
+    fetchAllProjects();
   }
 
   generatePalette = () => {

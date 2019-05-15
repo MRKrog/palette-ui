@@ -43,7 +43,7 @@ export class Modal extends Component {
       project_id: projectId
     }
     const options = await fetchOptions('POST', sendPalette);
-    const response = await fetchData(process.env.REACT_APP_BACKEND_URL + '/api/v1/palettes', options)
+    await fetchData(process.env.REACT_APP_BACKEND_URL + '/api/v1/palettes', options)
     fetchAllProjects();
     setModal(modalDisplay)
   }

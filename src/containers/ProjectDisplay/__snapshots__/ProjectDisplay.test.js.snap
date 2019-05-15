@@ -1,7 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SwipeableTemporaryDrawer SwipeableTemporaryDrawer Component should match the snapshot 1`] = `
-<SwipeableTemporaryDrawer
-  classes={Object {}}
-/>
+exports[`<SwipeableTemporaryDrawer /> should render a styled CircularProgress 1`] = `
+<div
+  className="ProjectDisplay"
+>
+  <WithStyles(Button)
+    className="ProjectBtn"
+    onClick={[Function]}
+  >
+    Explore 
+    <i
+      className="fas fa-angle-up UpBtn"
+    />
+  </WithStyles(Button)>
+  <WithTheme(SwipeableDrawer)
+    anchor="bottom"
+    onClose={[Function]}
+    onOpen={[Function]}
+    open={false}
+  >
+    <div
+      className="ProjectDisplay-Content"
+    >
+      <ConnectFunction />
+    </div>
+  </WithTheme(SwipeableDrawer)>
+</div>
 `;

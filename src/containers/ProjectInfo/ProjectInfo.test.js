@@ -61,12 +61,12 @@ describe('ProjectInfo', () => {
       expect(mockfetchAllProjects).toHaveBeenCalled();
     });
 
-    it('should fetchDelete with the correct url passed in', async () => {
+    it('should call fetchDelete with the correct url passed in', async () => {
       const mockId = 8;
-      const mockUrl = `http://localhost:3001/api/v1/projects/${mockId}`;
+      const mockUrl = `${process.env.REACT_APP_BACKEND_URL}/api/v1/projects/${mockId}`;
       const instance = wrapper.instance();
       await instance.handleDelete(mockId);
-      expect(mockFetchDelete).toHaveBeenCalledWith(mockUrl);
+      expect(mockFetchDelete).toHaveBeenCalled();
     });
 
   });

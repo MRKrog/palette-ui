@@ -9,6 +9,7 @@ export const paletteReducer = (state = [], action) => {
         }
         return color;
       })
+      console.log('colorPalette', colorPalette);
       return colorPalette;
     default:
       return state;

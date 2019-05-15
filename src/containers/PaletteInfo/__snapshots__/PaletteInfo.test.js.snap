@@ -4,9 +4,7 @@ exports[`PaletteInfo PaletteInfo Component should match the snapshot 1`] = `
 <div
   className="PaletteInfo"
 >
-  <h4>
-    Mikes Pal
-  </h4>
+  <h4 />
   <ul>
     <li
       style={

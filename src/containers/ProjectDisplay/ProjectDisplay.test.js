@@ -1,20 +1,40 @@
 import React from 'react';
 import { shallow } from 'enzyme'
-import SwipeableTemporaryDrawer from './index';
+// import { createShallow } from '@material-ui/core/test-utils';
+import ProjectDisplay from './index';
 
-describe('SwipeableTemporaryDrawer', () => {
+// import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 
-  describe('SwipeableTemporaryDrawer Component', () => {
-    let wrapper;
-    let mockSetLock = jest.fn()
 
-    beforeEach(() => {
-      wrapper = shallow(<SwipeableTemporaryDrawer/>)
-    })
+describe('<SwipeableTemporaryDrawer />', () => {
+  let wrapper;
+  let swipe;
 
-    it('should match the snapshot', () => {
-      expect(wrapper).toMatchSnapshot()
-    })
+  beforeEach(() => {
+    wrapper = shallow(<ProjectDisplay />)
+  });
+
+  it('should render a styled CircularProgress', () => {
+    expect(wrapper).toMatchSnapshot()
+  });
+
+  it('should have default state', () => {
+
+    expect(wrapper.state()).toEqual({
+      bottom: false,
+    });
+
+  });
+
+  it('should have default state', () => {
+    const button = wrapper.find('.ProjectBtn');
+    button.simulate('click');
+
+    wrapper.instance().toggleDrawer('bottom', true)
+
+    expect(wrapper.state()).toEqual({
+      bottom: true,
+    });
 
   });
 

@@ -13,6 +13,7 @@ exports[`Color Color Component should match the snapshot 1`] = `
     className="LockBtn"
   >
     <button
+      className="handleLockClick"
       onClick={[Function]}
     >
       <img

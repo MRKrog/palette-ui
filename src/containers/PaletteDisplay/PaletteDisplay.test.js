@@ -36,10 +36,10 @@ describe('PaletteDisplay', () => {
         currentPalette: mockCurrentPalette,
       }
 
-      const mappedProps = mapStateToProps(mockState)
+      const mappedProps = mapStateToProps(mockState);
 
-      expect(mappedProps).toEqual(expected)
-    })
+      expect(mappedProps).toEqual(expected);
+    });
   });
 
 });

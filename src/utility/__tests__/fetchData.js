@@ -38,4 +38,17 @@ describe('fetchData', () => {
     expect(result).toEqual(mockProjects);
   });
 
+  it.skip('should throw an error if response is not okay', async () => {
+    window.fetch = jest.fn(() =>
+      Promise.resolve({
+        status: 422,
+        ok: false,
+        json: jest.fn(() => Promise.resolve('Fetch Call Cannot Be Made'))
+      })
+    );
+    const expected = new Error('Fetch Call Cannot Be Made');
+    const result = fetchData(url, mockBody);
+    await expect(result).rejects.toEqual(expected);
+  });
+
 });

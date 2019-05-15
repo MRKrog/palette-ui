@@ -2,8 +2,12 @@ import React from 'react';
 import { shallow } from 'enzyme'
 import { Modal, mapStateToProps, mapDispatchToProps } from './Modal';
 
+import { fetchOptions } from '../../utility/fetchOptions';
+import { fetchData } from '../../utility/fetchData';
 import { fetchAllProjects } from '../../thunks/fetchAllProjects';
 jest.mock('../../thunks/fetchAllProjects');
+jest.mock('../../utility/fetchData');
+jest.mock('../../utility/fetchOptions');
 
 import * as actions from '../../actions/index';
 
@@ -38,28 +42,51 @@ describe('Modal', () => {
 
   describe('Modal Component', () => {
     let wrapper;
-    let mockfetchAllProjects = jest.fn()
-    let mockSetModal = jest.fn()
+    let mockfetchAllProjects = jest.fn();
+    let mockSetModal = jest.fn();
+    let mockModalDisplay = true;
 
     beforeEach(() => {
       wrapper = shallow(<Modal allProjects={mockAllProjects}
                                currentPalette={mockCurrentPalette}
                                setModal={mockSetModal}
                                fetchAllProjects={mockfetchAllProjects}
+                               modalDisplay={mockModalDisplay}
                         />
                       )
     })
 
     it('should match the snapshot', () => {
       expect(wrapper).toMatchSnapshot()
-    })
+    });
 
     it('should have default state', () => {
       expect(wrapper.state()).toEqual({
         paletteName: '',
         projectId: ''
       });
-    })
+    });
+
+    it('should fetchData with corrects parameters', async () => {
+      const mockUrl = 'http://localhost:3001/api/v1/palettes';
+      const instance = wrapper.instance();
+      const event = { preventDefault: () => { } };
+      await instance.handleSendPalette(event);
+      const mockOptions = await fetchOptions('POST', { name: '' });
+      expect(fetchData).toHaveBeenCalledWith(mockUrl, mockOptions);
+    });
+
+    it('should change state when handleChange is changed', () => {
+      const button = wrapper.find('.paletteInput');
+      const mockEvent = { target: { name: 'paletteName', value: 'Project Title' } }
+      button.simulate('change', mockEvent);
+      expect(wrapper.state('paletteName')).toEqual('Project Title');
+    });
+
+    it('should call setModal when handleClose is invoked', () => {
+      wrapper.instance().handleClose();
+      expect(mockSetModal).toHaveBeenCalledWith(mockModalDisplay);
+    });
 
   });
 

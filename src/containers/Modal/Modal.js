@@ -43,7 +43,7 @@ export class Modal extends Component {
       project_id: projectId
     }
     const options = await fetchOptions('POST', sendPalette);
-    const response = await fetchData('http://localhost:3001/api/v1/palettes', options)
+    await fetchData('http://localhost:3001/api/v1/palettes', options)
     fetchAllProjects();
     setModal(modalDisplay)
   }
@@ -69,6 +69,7 @@ export class Modal extends Component {
                 )}
               </select>
                 <input type='text' onChange={this.handleChange}
+                                   className='paletteInput'
                                    value={this.state.name}
                                    name='paletteName'
                                    placeholder='Palette Name'

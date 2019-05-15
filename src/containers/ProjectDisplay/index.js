@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Projects from '../Projects/Projects'
-import { withStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Button from '@material-ui/core/Button';
 
-const styles = {
-
-};
-
-class SwipeableTemporaryDrawer extends Component {
+class ProjectDisplay extends Component {
   state = {
     bottom: false,
   }
@@ -41,8 +36,8 @@ class SwipeableTemporaryDrawer extends Component {
   }
 }
 
-SwipeableTemporaryDrawer.propTypes = {
-  classes: PropTypes.object.isRequired,
+ProjectDisplay.propTypes = {
+  classes: PropTypes.object,
 };
 
-export default withStyles(styles)(SwipeableTemporaryDrawer);
+export default ProjectDisplay;

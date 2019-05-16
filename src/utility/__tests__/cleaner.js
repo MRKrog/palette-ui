@@ -6,7 +6,11 @@ describe('cleaner', () => {
 
   beforeEach(() => {
     mockProjects = [{ id: 8, name: 'Project Two' }];
-    mockPalettes = [{ color_1: '#FFFFFF', project_id: 8 }, { color_2: '#000000', project_id: 8 }];
+    mockPalettes = [
+                    { color_1: '#FFFFFF', project_id: 8 },
+                    { color_2: '#000000', project_id: 8 },
+                    { color_3: '#000000', project_id: 9 }
+                   ];
   });
 
   it('should clean the projects and palettes into an object', () => {

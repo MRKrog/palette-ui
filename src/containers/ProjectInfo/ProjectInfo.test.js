@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme'
 import { ProjectInfo, mapDispatchToProps } from './ProjectInfo';
-
 import { fetchAllProjects } from '../../thunks/fetchAllProjects';
 import { fetchDelete } from '../../thunks/fetchDelete';
 jest.mock('../../thunks/fetchAllProjects');
@@ -64,6 +63,11 @@ describe('ProjectInfo', () => {
       const instance = wrapper.instance();
       await instance.handleDelete(mockId);
       expect(mockFetchDelete).toHaveBeenCalled();
+    });
+
+    it('should match the snapshot when there are no palettes to display', () => {
+      wrapper.setProps({ palettes: [] })
+      expect(wrapper).toMatchSnapshot();
     });
 
   });

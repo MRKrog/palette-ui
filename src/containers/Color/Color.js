@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
 import * as actions from '../../actions';
-
 import lockIcon from '../../media/icons/lock-alt-solid.svg';
 import unlockIcon from '../../media/icons/unlock-alt-solid.svg';
 

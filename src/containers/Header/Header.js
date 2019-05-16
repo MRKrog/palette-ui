@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import * as actions from '../../actions';
 import { generateColors } from '../../utility/generateColors';
 import { Tooltip } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
 export class Header extends Component {
   constructor() {
@@ -54,7 +54,10 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 Header.propTypes = {
-
+  currentPalette: PropTypes.array,
+  modal: PropTypes.bool,
+  setPalette: PropTypes.func,
+  setModal: PropTypes.func,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

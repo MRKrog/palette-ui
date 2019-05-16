@@ -5,7 +5,7 @@ exports[`Color Color Component should match the snapshot 1`] = `
   className="Color"
   style={
     Object {
-      "backgroundColor": undefined,
+      "backgroundColor": "#6e21e8",
     }
   }
 >
@@ -17,6 +17,7 @@ exports[`Color Color Component should match the snapshot 1`] = `
       onClick={[Function]}
     >
       <img
+        alt="#6e21e8"
         className="Lock"
         src="unlock-alt-solid.svg"
       />
@@ -25,7 +26,42 @@ exports[`Color Color Component should match the snapshot 1`] = `
   <div
     className="ColorCode"
   >
-    <h3 />
+    <h3>
+      #6e21e8
+    </h3>
+  </div>
+</div>
+`;
+
+exports[`Color Color Component should show the lock icon if locked is equal to true 1`] = `
+<div
+  className="Color"
+  style={
+    Object {
+      "backgroundColor": "#6e21e8",
+    }
+  }
+>
+  <div
+    className="LockBtn"
+  >
+    <button
+      className="handleLockClick"
+      onClick={[Function]}
+    >
+      <img
+        alt="#6e21e8"
+        className="Lock"
+        src="lock-alt-solid.svg"
+      />
+    </button>
+  </div>
+  <div
+    className="ColorCode"
+  >
+    <h3>
+      #6e21e8
+    </h3>
   </div>
 </div>
 `;

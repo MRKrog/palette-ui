@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
 import Header from '../Header/Header';
 import PaletteDisplay from '../PaletteDisplay';
 import ProjectDisplay from '../ProjectDisplay';
 import Modal from '../Modal/Modal';
-
 import * as actions from '../../actions';
-
 import { fetchAllProjects } from '../../thunks/fetchAllProjects';
 import { generateColors } from '../../utility/generateColors';
 

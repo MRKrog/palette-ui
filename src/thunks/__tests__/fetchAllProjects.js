@@ -1,47 +1,77 @@
 import { fetchAllProjects } from '../fetchAllProjects';
 import * as actions from '../../actions';
+import { cleanProjectsPalettes } from '../../utility/cleaner';
+jest.mock('../../utility/cleaner');
+import { fetchData } from '../../utility/fetchData';
+jest.mock('../../utility/fetchData');
+
 
 describe('fetchAllProjects', () => {
   let mockDispatch;
   let mockData;
   let mockUrl;
-  let thunk;
+
   beforeEach(() => {
     mockDispatch = jest.fn();
     mockData = ['colors'];
     mockUrl = 'www.someurl.com';
-    thunk = fetchAllProjects(mockUrl);
-    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+    cleanProjectsPalettes.mockReturnValue(['colors', 'moreColors']);
+  });
+
+  it('calls fetch', async () => {
+    fetchData.mockImplementation(() => Promise.resolve({
       ok: true,
       json: () => Promise.resolve({
         mockData
       })
     }));
+    const thunk = fetchAllProjects(mockUrl);
+    await thunk(mockDispatch);
+    expect(fetchData).toHaveBeenCalled();
   });
 
-  it('calls fetch', () => {
-    thunk(mockDispatch);
-    expect(window.fetch).toHaveBeenCalled();
-  });
-
-  it('calls dispatch with setLoading', () => {
-    thunk(mockDispatch);
+  it('calls dispatch with setLoading', async () => {
+    fetchData.mockImplementation(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve({
+        mockData
+      })
+    }));
+    const thunk = fetchAllProjects(mockUrl);
+    await thunk(mockDispatch);
     expect(mockDispatch).toHaveBeenCalledWith(actions.setLoading(true));
   });
 
   it('should dispatch setLoading to false', async () => {
+    fetchData.mockImplementation(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve({
+        mockData
+      })
+    }));
+    const thunk = fetchAllProjects(mockUrl);
     await thunk(mockDispatch);
     expect(mockDispatch).toHaveBeenCalledWith(actions.setLoading(false));
   });
 
-  it.skip('should dispatch setError with the message if the response is not ok', async () => {
-    window.fetch = jest.fn().mockImplementation(() =>
-      Promise.resolve({
-        ok: false,
-        statusText: 'Something went wrong'
+  it('should dispatch setProjects with combinedData', async () => {
+    fetchData.mockImplementation(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve({
+        mockData
       })
-    );
-    thunk(mockDispatch);
+    }));
+    const thunk = fetchAllProjects(mockUrl);
+    await thunk(mockDispatch);
+    expect(mockDispatch).toHaveBeenCalledWith(actions.setProjects(['colors', 'moreColors']));
+  });
+
+  it('should dispatch setError with the message if the response is not ok', async () => {
+    fetchData.mockImplementationOnce(() => Promise.resolve({
+      ok: false,
+      statusText: 'Something went wrong'
+    }));
+    const thunk = fetchAllProjects(mockUrl);
     await thunk(mockDispatch);
     expect(mockDispatch).toHaveBeenCalledWith(actions.setError('Something went wrong'));
   });

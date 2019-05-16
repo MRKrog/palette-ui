@@ -1,14 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Projects, mapStateToProps, mapDispatchToProps } from './Projects';
-
 import { fetchOptions } from '../../utility/fetchOptions';
 jest.mock('../../utility/fetchOptions');
 import { fetchAllProjects } from '../../thunks/fetchAllProjects';
 jest.mock('../../thunks/fetchAllProjects');
 import { fetchData } from '../../utility/fetchData';
 jest.mock('../../utility/fetchData');
-
 import * as actions from '../../actions/index';
 
 const mockAllProjects = [
@@ -62,13 +60,12 @@ describe('Projects', () => {
     });
 
     it('should call fetchData when handleSendProject is invoked with the correct params', async () => {
-      const mockUrl = 'http://localhost:3001/api/v1/projects';
+      const mockUrl = `${process.env.REACT_APP_BACKEND_URL}/api/v1/projects`;
       const instance = wrapper.instance();
       const event = { preventDefault: () => {}};
       await instance.handleSendProject(event);
       const mockOptions = await fetchOptions('POST', { name: '' });
-      // expect(fetchData).toHaveBeenCalledWith(mockUrl, mockOptions);
-      expect(fetchData).toHaveBeenCalled();
+      expect(fetchData).toHaveBeenCalledWith(mockUrl, mockOptions);
     });
 
     it('should call fetchAllProjects when handleSendProject is invoked with correct params', async () => {
@@ -78,15 +75,12 @@ describe('Projects', () => {
       expect(mockfetchAllProjects).toHaveBeenCalled();
     });
 
-    it.skip('should change state when handleChange is invoked', () => {
-      const button = wrapper.find('.ProjectBtn');
-      button.simulate('click');
-
-      wrapper.instance().toggleDrawer('bottom', true);
-
-      expect(wrapper.state()).toEqual({
-        bottom: true
-      });
+    it('should change state when handleChange is invoked', () => {
+      const button = wrapper.find('input');
+      const mockEvent = { target: { name: 'name', value: 'New Project' } }
+      button.simulate('change', mockEvent);
+      // wrapper.instance().handleChange();
+      expect(wrapper.state()).toEqual({name: 'New Project'});
     });
 
   });

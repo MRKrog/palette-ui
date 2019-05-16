@@ -32,3 +32,28 @@ exports[`ProjectInfo ProjectInfo Component should match the snapshot 1`] = `
   />
 </div>
 `;
+
+exports[`ProjectInfo ProjectInfo Component should match the snapshot when there are no palettes to display 1`] = `
+<div
+  className="ProjectInfo"
+>
+  <section
+    className="Project-Info-Header"
+  >
+    <h3>
+      Test Project Title
+    </h3>
+    <button
+      className="DeleteBtn"
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-trash-alt"
+      />
+    </button>
+  </section>
+  <p>
+    Insert In Some Palettes
+  </p>
+</div>
+`;

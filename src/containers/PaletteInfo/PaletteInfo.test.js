@@ -1,12 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme'
 import { PaletteInfo, mapDispatchToProps } from './PaletteInfo';
-
 import * as actions from '../../actions/index';
-
 import { fetchAllProjects } from '../../thunks/fetchAllProjects';
 import { fetchDelete } from '../../thunks/fetchDelete';
-
 jest.mock('../../thunks/fetchAllProjects');
 jest.mock('../../thunks/fetchDelete');
 

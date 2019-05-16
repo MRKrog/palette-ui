@@ -10,7 +10,6 @@ const mockCurrentPalette = [
   { color: '#cccccc', locked: false }
 ]
 
-
 describe('PaletteDisplay', () => {
 
   describe('PaletteDisplay Component', () => {

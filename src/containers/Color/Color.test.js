@@ -1,17 +1,23 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme'
 import { Color, mapDispatchToProps } from './Color';
-
 import * as actions from '../../actions/index';
 
 describe('Color', () => {
 
   describe('Color Component', () => {
     let wrapper;
+    let mockColor = "#6e21e8"
+    let mockId = 4
+    let mockLocked = false
     let mockSetLock = jest.fn();
 
     beforeEach(() => {
-      wrapper = shallow(<Color setLock={mockSetLock} />)
+      wrapper = shallow(<Color setLock={mockSetLock}
+                               color={mockColor}
+                               id={mockId}
+                               locked={mockLocked}
+                        />)
     });
 
     it('should match the snapshot', () => {
@@ -31,6 +37,12 @@ describe('Color', () => {
       wrapper.find('.handleLockClick').simulate('click');
       expect(wrapper.instance().handleLock).toHaveBeenCalled();
     });
+
+    it('should show the lock icon if locked is equal to true', () => {
+      wrapper.setProps({ locked: true })
+      expect(wrapper).toMatchSnapshot()
+    });
+
   });
 
   describe('mapDispatchToProps', () => {

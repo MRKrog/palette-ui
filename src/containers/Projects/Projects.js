@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
 import ProjectInfo from '../ProjectInfo/ProjectInfo';
-
 import * as actions from '../../actions';
-
 import { fetchAllProjects } from '../../thunks/fetchAllProjects';
 import { fetchOptions } from '../../utility/fetchOptions';
 import { fetchData } from '../../utility/fetchData';
@@ -75,7 +72,9 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 Projects.propTypes = {
-  allProjects: PropTypes.array
+  allProjects: PropTypes.array,
+  setPalette: PropTypes.func,
+  fetchAllProjects: PropTypes.func
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Projects);

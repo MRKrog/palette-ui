@@ -9,6 +9,9 @@ export const fetchAllProjects = () => {
       const allProjects = await fetchData(process.env.REACT_APP_BACKEND_URL + '/api/v1/projects');
       const allPalettes = await fetchData(process.env.REACT_APP_BACKEND_URL + '/api/v1/palettes');
       dispatch(actions.setLoading(false));
+      if(!allProjects.ok){
+        throw Error(allProjects.statusText)
+      }
       const combinedData = cleanProjectsPalettes(allProjects, allPalettes)
       dispatch(actions.setProjects(combinedData));
     } catch (error) {

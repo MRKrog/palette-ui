@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
 import Color from '../Color/Color';
 
 export class PaletteDisplay extends Component {

@@ -1,10 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme'
-// import { createShallow } from '@material-ui/core/test-utils';
 import ProjectDisplay from './index';
-
-// import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-
 
 describe('<SwipeableTemporaryDrawer />', () => {
   let wrapper;
@@ -19,11 +15,7 @@ describe('<SwipeableTemporaryDrawer />', () => {
   });
 
   it('should have default state', () => {
-
-    expect(wrapper.state()).toEqual({
-      bottom: false,
-    });
-
+    expect(wrapper.state()).toEqual({ bottom: false });
   });
 
   it('should have default state', () => {

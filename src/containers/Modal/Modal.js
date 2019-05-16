@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-
 import { fetchAllProjects } from '../../thunks/fetchAllProjects';
 import { fetchOptions } from '../../utility/fetchOptions';
 import { fetchData } from '../../utility/fetchData';
@@ -106,7 +104,11 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 Modal.propTypes = {
-  allProjects: PropTypes.array
+  allProjects: PropTypes.array,
+  modalDisplay: PropTypes.bool,
+  currentPalette: PropTypes.array,
+  setModal: PropTypes.func,
+  fetchAllProjects: PropTypes.func
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);

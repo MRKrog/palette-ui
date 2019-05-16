@@ -7,7 +7,10 @@ export const fetchDelete = (url) => {
     try {
       dispatch(actions.setLoading(true));
       const options = await fetchOptions('DELETE', {});
-      await fetchData(url, options);
+      const response = await fetchData(url, options);
+      if(!response.ok){
+        throw Error(response.statusText)
+      }
       dispatch(actions.setLoading(false));
     } catch (error) {
       dispatch(actions.setError(error.message));

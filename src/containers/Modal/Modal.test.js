@@ -1,14 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme'
 import { Modal, mapStateToProps, mapDispatchToProps } from './Modal';
-
 import { fetchOptions } from '../../utility/fetchOptions';
 import { fetchData } from '../../utility/fetchData';
 import { fetchAllProjects } from '../../thunks/fetchAllProjects';
 jest.mock('../../thunks/fetchAllProjects');
 jest.mock('../../utility/fetchData');
 jest.mock('../../utility/fetchOptions');
-
 import * as actions from '../../actions/index';
 
 const mockAllProjects = [
@@ -47,6 +45,7 @@ describe('Modal', () => {
     let mockModalDisplay = true;
 
     beforeEach(() => {
+      process.env = Object.assign(process.env, { REACT_APP_BACKEND_URL: 'http://localhost:3001' });
       wrapper = shallow(<Modal allProjects={mockAllProjects}
                                currentPalette={mockCurrentPalette}
                                setModal={mockSetModal}

@@ -16,10 +16,13 @@ export class Projects extends Component {
   }
 
   handleSendProject = async event => {
+    console.log('in handlesend');
     event.preventDefault();
     const { fetchAllProjects } = this.props;
     const options = await fetchOptions('POST', this.state);
-    await fetchData(process.env.REACT_APP_BACKEND_URL + '/api/v1/projects', options);
+    const response = await fetchData('http://localhost:3001/api/v1/projects', options);
+    console.log(response);
+    // await fetchData(process.env.REACT_APP_BACKEND_URL + '/api/v1/projects', options);
     fetchAllProjects();
   }
 

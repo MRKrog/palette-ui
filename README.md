@@ -4,6 +4,12 @@
 Palette Picker is a single page application that gives you the ability to generate color palettes, lock colors, and save palettes to projects. This application utilizes a RESTful API to design patterns associated with building a single app across multiple repositories.
 
 ## Preview:
+![Homepage Preview](src/images/Homepage.png)
+
+View All Projects          |  Add New Palette
+:-------------------------:|:-------------------------:
+<img src="src/images/Allprojects.png" alt="Projects">  |  <img src="src/images/NewPalette.png" alt="Palettes">
+
 
 ## Getting Started:
 
@@ -23,8 +29,6 @@ cd into directory and run npm install: ``` $ npm install ```
 
 Start up in your terminal: ``` $ npm start ```
 
-## Future Development and Extensions Notes:
-
 
 ### Technologies Used
 Palette Picker was built using:
@@ -33,18 +37,12 @@ Palette Picker was built using:
 - [Redux.js](https://redux.js.org/)
 - [Node.js](https://nodejs.org/en/)
 - [Express.js](https://expressjs.com/)
+- [Material-UI](https://material-ui.com/)
 
 And tested using:
 - [Enzyme](https://airbnb.io/enzyme/) & [Jest](https://airbnb.io/enzyme/docs/guides/jest.html)
 
-### Wireframe
-Main Page
 
-![Image of Main Wireframes](src/images/palette-picker-wireframe.png)
-
-Modal and Pop ups
-
-![Modal and pop up images](src/images/palette-pick-wireframe.png)
 ## Contributors
 - [Michael Krog](https://github.com/MRKrog)
 - [Isaac Sunoo](https://github.com/IsaacSunoo)

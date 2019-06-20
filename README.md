@@ -3,13 +3,15 @@
 ## Overview:
 Palette Picker is a single page application that gives you the ability to generate color palettes, lock colors, and save palettes to projects. This application utilizes a RESTful API to design patterns associated with building a single app across multiple repositories.
 
+## View Application:
+- [View](https://paletteui.herokuapp.com/)
+
 ## Preview:
 ![Homepage Preview](src/images/Homepage.png)
 
 View All Projects          |  Add New Palette
 :-------------------------:|:-------------------------:
 <img src="src/images/Allprojects.png" alt="Projects">  |  <img src="src/images/NewPalette.png" alt="Palettes">
-
 
 ## Getting Started:
 
